@@ -14,7 +14,7 @@ const app = Vue.createApp({
             home_exp: '1',
             serious:'300',
             mydebt: '0',
-            mypay_year: '1',
+            mypay_year: '5',
             mypay_value: '1',
             exp_list: [
                 {title: "1萬", value: "1"},
@@ -42,16 +42,17 @@ const app = Vue.createApp({
                 {title: "1000萬含以上", value: "10"},
             ],
             pay_year: [
-                {title: "1年", value: "1"},
-                {title: "2年", value: "2"},
-                {title: "3年", value: "3"},
-                {title: "4年", value: "4"},
                 {title: "5年", value: "5"},
                 {title: "6年", value: "6"},
                 {title: "7年", value: "7"},
                 {title: "8年", value: "8"},
                 {title: "9年", value: "9"},
                 {title: "10年", value: "10"},
+                {title: "11年", value: "11"},
+                {title: "12年", value: "12"},
+                {title: "13年", value: "13"},
+                {title: "14年", value: "14"},
+                {title: "15年", value: "15"}
             ],
             pay_value: [
                 {title: "100萬", value: "1"},
@@ -68,6 +69,18 @@ const app = Vue.createApp({
         }
     },
     computed: {
+        age_check_under15(){
+            return this.age<=15
+        },
+        age_check_under25(){
+            return this.age<25
+        },
+        age_check_between1624(){
+            return (this.age>=16 & this.age<25)
+        },
+        age_check_over24(){
+            return this.age>24
+        },
         prot_hosp(){
             let result = 0;
             let pic = '';
@@ -105,7 +118,7 @@ const app = Vue.createApp({
                 if(this.hosp_lv == "多數病房"){result = 2400; pic = 'ES1';}
                 if(this.hosp_lv == "部分病房"){result = 2000; pic = 'ES2';}
                 if(this.hosp_lv == "基本病房"){result = 1700; pic = 'ES3';}
-                } 
+                }
             if(this.area == "東部" & this.hosp_room == "雙人房"){
                     if(this.hosp_lv == "多數病房"){result = 1300; pic = 'ED1';}
                     if(this.hosp_lv == "部分病房"){result = 1200; pic = 'ED2';}
@@ -156,32 +169,42 @@ const app = Vue.createApp({
             let result = 0;
             if (this.serious == 300 ) { result = 300 }
             if (this.serious == 500 ) { result = 500 }
-            return {value:result}
+            let tmp = this.age; tmp2 = this.gender;
+            if (tmp >= 70){ tmp = 70}
+            if (tmp2 == "男"){ tmp2 = "M"}
+            if (tmp2 == "女"){ tmp2 = "F"}
+            return {value:result, gender:tmp2, age:10*parseInt(tmp/10)}
         },
         prot_longcare(){
             let result = 0;
 			let s1 = this.longcare;
 			let s2 = this.longcare2;
             if (s1 == 1 ) {
-                if(s2 == 1) {result = s2}
-                if(s2 == 2) {result = s2}
-                if(s2 == 3) {result = s2}
-                if(s2 == 4) {result = s2}
-                if(s2 == 5) {result = s2}
-                if(s2 == 6) {result = s2}
-                if(s2 == 7) {result = s2}
+                if(s2 == 1) {result = 1}
+                if(s2 == 2) {result = 2}
+                if(s2 == 3) {result = 3}
+                if(s2 == 4) {result = 4}
+                if(s2 == 5) {result = 5}
+                if(s2 == 6) {result = 6}
+                if(s2 == 7) {result = 7}
             }
             if (s1 == 2 ) {result = 7}
             if (s1 == 3 ) {result = 3}
             if (s1 == 4 ) {result = 2.5}
             if (s1 == 5 ) {result = 5.5}
+            if(result+1 < 3.5){ return {value:3.5} }
             return {value:result+1}
         },
         prot_life(){
             let debt = parseInt(this.mydebt);
             let y = parseInt(this.mypay_year);
             let exp = parseInt(this.home_exp);
-            return {value:(debt*100 + (y * exp * 12)).toLocaleString()}
+            let result = debt*100 + (y * exp * 12);
+            let age = this.age
+            if (age < 16) { return {value:61.5, age:this.age }}
+            if (age >= 16 & age<=24) { return {value:300, age:this.age } }
+            if (age > 16 & result < 300 ) { return {value:300, age:this.age } }
+            return {value:result.toLocaleString(), age:this.age}
         },
 
     },
@@ -195,44 +218,50 @@ app.mount("#app")
 function hosp_detail(){
     let vm = app_1.prot_hosp
     // console.log(vm)
-    $("#myhosp").attr("src", "/static/assets/images/prot/hosp/"+vm.pic+".jpg");
+    $("#myhosp").attr("src", "/static/assets/images/prot/hosp/"+vm.pic+".JPG");
 }
 
 function operation_detail(){
     let vm = app_1.prot_operation
     // console.log(vm)
-    $("#myoperation1").attr("src", "/static/assets/images/prot/operation/"+vm.gender+"/"+vm.pic1+".jpg");
-    $("#myoperation2").attr("src", "/static/assets/images/prot/operation/"+vm.gender+"/"+vm.pic2+".jpg");
+    $("#myoperation1").attr("src", "/static/assets/images/prot/operation/"+vm.gender+"/"+vm.pic1+".JPG");
+    $("#myoperation2").attr("src", "/static/assets/images/prot/operation/"+vm.gender+"/"+vm.pic2+".JPG");
 }
 
 function pay_detail(){
     let vm = app_1.prot_pay
     // console.log(vm)
-    if(vm.gender == "男"){ $("#mypay1").attr("src", "/static/assets/images/prot/pay/M"+vm.pic+".jpg");  }
-    if(vm.gender == "女"){ $("#mypay1").attr("src", "/static/assets/images/prot/pay/F"+vm.pic+".jpg");  }
-    $("#mypay2").attr("src", "/static/assets/images/prot/pay/PAY.jpg");
+    if(vm.gender == "男"){ $("#mypay1").attr("src", "/static/assets/images/prot/pay/M"+vm.pic+".JPG");  }
+    if(vm.gender == "女"){ $("#mypay1").attr("src", "/static/assets/images/prot/pay/F"+vm.pic+".JPG");  }
+    $("#mypay2").attr("src", "/static/assets/images/prot/pay/PAY.JPG");
 }
 
 function serious_detail(){
     let vm = app_1.prot_serious
     // console.log(vm)
-    $("#myoperation1").attr("src", "/static/assets/images/prot/hosp/"+vm.pic+".jpg");
+    $("#myserious").attr("src", "/static/assets/images/prot/serious/"+vm.value+"/"+vm.gender+vm.age+".JPG");
 }
 
 function accident_detail(){
     let vm = app_1.prot_life
+    if(vm.age <16){ $("#myaccident").attr("src", "/static/assets/images/prot/accident/accident1.JPG"); $('#myaccident_value').text("61.5") }
+    if(vm.age >=16 & vm.age <=24){ $("#myaccident").attr("src", "/static/assets/images/prot/accident/accident2.JPG"); $('#myaccident_value').text(vm.value.toLocaleString()) }
+    if(vm.age >24){ $("#myaccident").attr("src", "/static/assets/images/prot/accident/accident3.JPG"); $('#myaccident_value').text(vm.value.toLocaleString()) }
     // console.log(vm)
-    $("#myoperation1").attr("src", "/static/assets/images/prot/hosp/"+vm.pic+".jpg");
+    
 }
 
 function longcare_detail(){
     let vm = app_1.prot_longcare
     // console.log(vm)
-    $("#myoperation1").attr("src", "/static/assets/images/prot/hosp/"+vm.pic+".jpg");
+    $("#mylongcare").attr("src", "/static/assets/images/prot/longcare/longcare.JPG");
+    $('#mylongcare_value').text(vm.value.toLocaleString()) ;
 }
 
 function life_detail(){
     let vm = app_1.prot_life
     // console.log(vm)
-    $("#myoperation1").attr("src", "/static/assets/images/prot/hosp/"+vm.pic+".jpg");
+    if(vm.age <16){ $("#mylife").attr("src", "/static/assets/images/prot/life/life1.JPG"); $('#mylife_value').text("61.5") }
+    if(vm.age >=16 & vm.age <=24){ $("#mylife").attr("src", "/static/assets/images/prot/life/life2.JPG"); $('#mylife_value').text(vm.value.toLocaleString()) }
+    if(vm.age >24){ $("#mylife").attr("src", "/static/assets/images/prot/life/life3.JPG"); $('#mylife_value').text(vm.value.toLocaleString()) }
 }

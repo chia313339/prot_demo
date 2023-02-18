@@ -157,7 +157,6 @@
               <h3>{{age}} 歲</h3>
                 <label for="age" class="form-label"></label>
                 <input  v-model="age" type="range" class="form-range" min="1" max="100" step="1" id="age">
-                
             </div>
 
             <div class="col-12 col-lg-6 animated" data-animation="fadeInUp" >
@@ -281,10 +280,17 @@
         <div class="container align-self-xl-center">
           <div class="row mb-8">
             <div class="col-12 col-xl-6">
-              <h1 class="mb-4 animated" data-animation="fadeInUp">生活需求調查</h1>
+              <h1 class="mb-4 animated" data-animation="fadeInUp">生活財務調查</h1>
+              <div v-show="age_check_under25">
+                <h3 class="mb-4 animated" data-animation="fadeInUp">年齡於24歲以下，尚未負擔太重的家庭財務責任。</h1>
+                  <br>
+                  <br>
+                  <br>
+                <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="150" onclick="location.href='#myprotection'" style="font-size: 30px;">下一頁</button>
+              </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row"  v-show="age_check_over24">
             <div class="col-12 col-lg-6 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
               <h3>目前每月的家庭支出：</h3>
               <p class="mb-0" style="color: grey;">食、衣、住、行、稅、交際、孝親費、保母費等</p>
@@ -309,14 +315,6 @@
                 <!-- <option selected>選擇預期年數</option> -->
                 <option v-for="item in pay_year" :value="item.value">{{ item.title }}</option>
               </select>
-              <!-- <br>
-              <br>
-              <h3>每年幾萬的生活費用：</h3>
-              <br>
-              <select class="form-select" aria-label="Default select example" v-model="mypay_value">
-                <option value="1" selected>選擇預期金額</option>
-                <option v-for="item in pay_value" :value="item.value">{{ item.title }}</option>
-              </select> -->
             </div>
 
             <div class="col-12 col-lg-6 animated" data-animation="fadeInUp" data-animation-delay="600"></div>
@@ -368,7 +366,19 @@
               <br>
               <br>
               <button type="button" class="btn btn-danger btn-lg" style="font-size: 40px;" data-toggle="modal" data-target="#prot_accident_detail" onclick="accident_detail()">意外保障</button>
-              <h3 class="mb-0">{{ prot_life.value }} 萬元</h3>
+              <div v-show="age_check_under15">
+                <h3 class="mb-0">喪葬費用保險金 61.5 萬元</h3>
+              </div>
+              <div v-show="age_check_between1624">
+                <h3 class="mb-0">意外身故 {{ prot_life.value }} 萬元</h3>
+                <h3 class="mb-0">意外住院日額 {{ prot_hosp.value }} 元</h3>
+                <h3 class="mb-0">傷害醫療限額 10 萬元/次</h3>
+              </div>
+              <div v-show="age_check_over24">
+                <h3 class="mb-0">意外身故 {{ prot_life.value }} 萬元</h3>
+                <h3 class="mb-0">意外住院日額 {{ prot_hosp.value }} 元</h3>
+                <h3 class="mb-0">傷害醫療限額 10 萬元/次</h3>
+              </div>
             </div>
 
             <div class="col-12 col-lg-3 mb-8 mb-lg-0 animated" data-animation="fadeInUp" data-animation-delay="450">
@@ -378,7 +388,16 @@
 
             <div class="col-12 col-lg-3 mb-8 mb-lg-0 animated" data-animation="fadeInUp" data-animation-delay="600">
               <button type="button" class="btn btn-danger btn-lg" style="font-size: 40px;" data-toggle="modal" data-target="#prot_life_detail" onclick="life_detail()">壽險保障</button>
-              <h3 class="mb-0">{{ prot_life.value }} 萬元</h3>
+              <div v-show="age_check_under15">
+                <h3 class="mb-0">喪葬費用保險金 61.5 萬元</h3>
+              </div>
+              <div v-show="age_check_between1624">
+                <h3 class="mb-0">{{ prot_life.value }} 萬元</h3>
+              </div>
+              <div v-show="age_check_over24">
+                <h3 class="mb-0">{{ prot_life.value }} 萬元</h3>
+              </div>
+
             </div>
 
             
@@ -431,16 +450,16 @@
                 <img src="" class="d-block w-100" id="myhosp">
               </div>
               <div class="carousel-item">
-                <img src="/static/assets/images/prot/hosp/N.jpg" class="d-block w-100">
+                <img src="/static/assets/images/prot/hosp/N.JPG" class="d-block w-100">
               </div>
               <div class="carousel-item">
-                <img src="/static/assets/images/prot/hosp/M.jpg" class="d-block w-100">
+                <img src="/static/assets/images/prot/hosp/M.JPG" class="d-block w-100">
               </div>
               <div class="carousel-item">
-                <img src="/static/assets/images/prot/hosp/S.jpg" class="d-block w-100">
+                <img src="/static/assets/images/prot/hosp/S.JPG" class="d-block w-100">
               </div>
               <div class="carousel-item">
-                <img src="/static/assets/images/prot/hosp/E.jpg" class="d-block w-100">
+                <img src="/static/assets/images/prot/hosp/E.JPG" class="d-block w-100">
               </div>
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
@@ -499,6 +518,129 @@
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carousel_pay_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
             <button type="button" class="slick-next" data-bs-target="#carousel_pay_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- 重疾保障_Modal -->
+    <div class="modal fade" id="prot_serious_detail" tabindex="-1" role="dialog" aria-labelledby="prot_serious_detail_h" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content hover-parent">
+        <!-- Modal Body -->
+        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+          <div id="carousel_prot_serious_detail" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carousel_prot_serious_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel_prot_serious_detail" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="50000" >
+                <img src="" class="d-block w-100" id="myserious">
+              </div>
+              <div class="carousel-item">
+                <img src="/static/assets/images/prot/serious/serious.JPG" class="d-block w-100" >
+              </div>
+            </div>
+            <button type="button" class="slick-prev" data-bs-target="#carousel_prot_serious_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
+            <button type="button" class="slick-next" data-bs-target="#carousel_prot_serious_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- 意外保障_Modal -->
+    <div class="modal fade" id="prot_accident_detail" tabindex="-1" role="dialog" aria-labelledby="prot_accident_detail_h" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content hover-parent">
+        <!-- Modal Body -->
+        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+          <div id="carousel_prot_accident_detail" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <!-- <button type="button" data-bs-target="#carousel_prot_accident_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
+              <!-- <button type="button" data-bs-target="#carousel_prot_accident_detail" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="50000" >
+                <div style="position: relative; ">
+                  <img src="" class="d-block w-100" id="myaccident">
+                  <div style="position: absolute; top: 21%; right: 27%; transform: translate(0%, -50%); text-align: right; font-size: 2.5vw; font-weight:bold; color: #C00000;">
+                    <p id="myaccident_value"></p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="carousel-item">
+                <img src="/static/assets/images/prot/serious/serious.JPG" class="d-block w-100" >
+              </div> -->
+            </div>
+            <button type="button" class="slick-prev" data-bs-target="#carousel_prot_accident_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
+            <button type="button" class="slick-next" data-bs-target="#carousel_prot_accident_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- 長照保障_Modal -->
+    <div class="modal fade" id="prot_longcare_detail" tabindex="-1" role="dialog" aria-labelledby="prot_longcare_detail_h" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content hover-parent">
+        <!-- Modal Body -->
+        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+          <div id="carousel_prot_longcare_detail" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <!-- <button type="button" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
+              <!-- <button type="button" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="50000" >
+                <div style="position: relative; ">
+                  <img src="" class="d-block w-100" id="mylongcare">
+                  <div style="position: absolute; top: 21%; right: 27%; transform: translate(0%, -50%); text-align: right; font-size: 2.5vw; font-weight:bold; color: #C00000;">
+                    <p id="mylongcare_value"></p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="carousel-item">
+                <img src="/static/assets/images/prot/serious/serious.JPG" class="d-block w-100" >
+              </div> -->
+            </div>
+            <button type="button" class="slick-prev" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
+            <button type="button" class="slick-next" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- 壽險保障_Modal -->
+    <div class="modal fade" id="prot_life_detail" tabindex="-1" role="dialog" aria-labelledby="prot_life_detail_h" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content hover-parent">
+        <!-- Modal Body -->
+        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+          <div id="carousel_prot_life_detail" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <!-- <button type="button" data-bs-target="#carousel_prot_life_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
+              <!-- <button type="button" data-bs-target="#carousel_prot_life_detail" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="50000" >
+                <div style="position: relative; ">
+                  <img src="" class="d-block w-100" id="mylife">
+                  <div style="position: absolute; top: 21%; right: 27%; transform: translate(0%, -50%); text-align: right; font-size: 2.5vw; font-weight:bold; color: #C00000;">
+                    <p id="mylife_value"></p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="carousel-item">
+                <img src="/static/assets/images/prot/serious/serious.JPG" class="d-block w-100" >
+              </div> -->
+            </div>
+            <button type="button" class="slick-prev" data-bs-target="#carousel_prot_life_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
+            <button type="button" class="slick-next" data-bs-target="#carousel_prot_life_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
           </div>
         </div>
       </div>
