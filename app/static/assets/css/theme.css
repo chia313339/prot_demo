@@ -7576,6 +7576,7 @@ button.bg-white:focus {
 
 .min-vh-100 {
   min-height: 100vh !important;
+  margin-top: 0px; 
 }
 
 .vw-100 {

@@ -1,1 +1,13 @@
 ﻿/* Place Your Custom Styles Here */
+.modal-dialog {
+    max-width: 90%; /* 設置modal寬度 */
+    max-height: 90%; /* 設置modal高度 */
+  }
+
+.btn-prot{
+    font-size: 5vh;
+}
+
+.h-prot{
+    font-size: 3vh;
+}
