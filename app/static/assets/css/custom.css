@@ -11,3 +11,25 @@
 .h-prot{
     font-size: 3vh;
 }
+
+
+.carousel-indicators li {
+    background-color: rgba(17, 89, 205, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .carousel-indicators .active {
+    background-color: #939393;
+    /* opacity: 1; */
+  }
+  
+  
+  
+  
+  

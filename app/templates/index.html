@@ -40,11 +40,11 @@
   <body class="layout-wide">
 
     <!-- Loader -->
-    <div class="loader bg-dark">
+    <!-- <div class="loader bg-dark">
       <div class="spinner-grow text-primary" role="status">
         <span class="sr-only">載入中...</span>
       </div>
-    </div>
+    </div> -->
 
     <div id="top"></div>
 
@@ -203,8 +203,8 @@
                 <label class="btn btn-outline-primary" for="hosp_lv_3">基本病房</label>
               </div>
               <p class="mb-0" style="color: grey;">多數病房：足額的住院保障，可以選擇多數的醫院及房型</p>
-              <p class="mb-0" style="color: grey;">部分病房：較高的住院保障，可以選擇常見的醫院及房型</p>
-              <p class="mb-0" style="color: grey;">基本病房：基本的住院保障，可以選擇基本的醫院及房型</p>
+              <p class="mb-0" style="color: grey;">部分病房：基本的住院保障，可以選擇部分的醫院及房型</p>
+              <p class="mb-0" style="color: grey;">簡單病房：最低的住院保障，可以選擇少數的醫院及房型</p>
               <br>
               <h3>重疾療程偏好</h3>
               <div class="btn-group-lg" role="group" aria-label="Basic radio toggle button group">
@@ -287,7 +287,7 @@
                   <br>
                   <br>
                   <br>
-                <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="150" onclick="location.href='#myprotection'" style="font-size: 30px;">下一頁</button>
+                <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="150" onclick="location.href='#myprotection'" style="font-size: 2rem;">往下觀看結果</button>
               </div>
             </div>
           </div>
@@ -310,7 +310,7 @@
             </div>
 
             <div class="col-12 col-lg-6 mb-8 animated" data-animation="fadeInUp" data-animation-delay="300">
-              <h3>若不幸發生意外，我希望可以提供家人幾年資金援助：</h3>
+              <h3>若不幸發生意外，希望提供家人幾年資金援助：</h3>
               <br>
               <select class="form-select" aria-label="Default select example" v-model="mypay_year">
                 <!-- <option selected>選擇預期年數</option> -->
@@ -422,25 +422,13 @@
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <img src="" class="d-block w-100" id="myhosp">
               </div>
               <div class="carousel-item">
-                <img src="/static/assets/images/prot/hosp/N.JPG" class="d-block w-100">
-              </div>
-              <div class="carousel-item">
-                <img src="/static/assets/images/prot/hosp/M.JPG" class="d-block w-100">
-              </div>
-              <div class="carousel-item">
-                <img src="/static/assets/images/prot/hosp/S.JPG" class="d-block w-100">
-              </div>
-              <div class="carousel-item">
-                <img src="/static/assets/images/prot/hosp/E.JPG" class="d-block w-100">
+                <img src="/static/assets/images/prot/hosp/HOSP.JPG" class="d-block w-100">
               </div>
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
