@@ -38,10 +38,15 @@
 
   .h_title:before {
     content: "●";
-    margin-left: -1em;
+    /* margin-left: -1em; */
     display: inline-block;
     color: #0D6EFD;
   }
+
+  .h_title {
+    text-indent: 0.1rem;
+  }
+  
 
   .longcare_btn {
     width: 160px;

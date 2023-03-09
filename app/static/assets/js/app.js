@@ -69,6 +69,9 @@ const app = Vue.createApp({
         }
     },
     computed: {
+        isMobile() {
+            return window.innerWidth < 768; // 根據視窗寬度來判斷是否為手機版
+        },
         area_pic(){
             return this.area
         },

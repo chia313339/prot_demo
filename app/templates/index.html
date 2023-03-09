@@ -120,12 +120,12 @@
                 <span>&nbsp;&nbsp;您的性別</span>
               </h3>
               <div class="btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-outline-primary mx-3" for="gender_M" @click="gender = '男'">
+                <label class="btn btn-outline-primary m-3" for="gender_M" @click="gender = '男'">
                   <input type="radio" class="btn-check" name="gender" id="gender_M" autocomplete="off" :checked="gender === '男'">
                   <img src="/static/assets/images/questionnaire/M.png" style="width: 120px; ">
                   <p>男性</p>
                 </label>
-                <label class="btn btn-outline-primary mx-3" for="gender_F" @click="gender = '女'">
+                <label class="btn btn-outline-primary m-3" for="gender_F" @click="gender = '女'">
                   <input type="radio" class="btn-check" name="gender" id="gender_F" autocomplete="off" :checked="gender === '女'">
                   <img src="/static/assets/images/questionnaire/F.png" style="width: 120px;">
                   <p>女性</p>
@@ -141,15 +141,23 @@
               </h3>
               <h3>{{age}} 歲</h3>
                 <label for="age" class="form-label"></label>
-                <input  v-model="age" type="range" class="form-range" min="0" max="99" step="1" id="age" style="width:35vw">
+                <input  v-model="age" type="range" class="form-range col-11" min="0" max="99" step="1" id="age" >
               </div>
 
             <div class="col-12 col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="450">
               <h3 class="h_title">
                 <span>&nbsp;&nbsp;您的居住地</span>
               </h3>
-              <div class="image-container" style="max-width:100%;max-height:100%;">
-                <img src="/static/assets/images/questionnaire/tw2.png" style="max-width:100%;max-height:400px;"  >
+              <div v-if="isMobile" >
+                <select class="form-select col-xl-10 col-lg-11 col-md-11" aria-label="Default select example" v-model="area" >
+                  <option value="北部">北部</option>
+                  <option value="中部">中部</option>
+                  <option value="南部">南部</option>
+                  <option value="東部">東部</option>
+                </select>
+              </div>
+              <div v-if="!isMobile" class="image-container" style="max-width:100%;max-height:100%;">
+                <img src="/static/assets/images/questionnaire/tw2.png" class="col-12" >
                 <div class="btn-group-lg" role="group" aria-label="Basic radio toggle button group">
                   <input v-model="area" v-bind:value="'北部'" type="radio" class="btn-check" name="area" id="area_N" autocomplete="off" checked>
                   <label class="btn btn-outline-primary btn-lg" for="area_N" style="position: absolute; top: 7%; left: 19.5%">北部</label>
@@ -191,12 +199,12 @@
                 <span>&nbsp;&nbsp;如果未來有<span style="color:#0D6EFD;">住院</span>需求，您偏好的房型為何？</span>
               </h3>
               <div class="btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-outline-primary mx-3" @click="hosp_room = '單人房'">
+                <label class="btn btn-outline-primary m-3" @click="hosp_room = '單人房'">
                   <input type="radio" class="btn-check" name="hosp_room" id="hosp_room_S" autocomplete="off" :checked="hosp_room === '單人房'">
                   <img src="/static/assets/images/questionnaire/bed1.png" style="width: 120px; ">
                   <p>單人房</p>
                 </label>
-                <label class="btn btn-outline-primary mx-3" @click="hosp_room = '雙人房'">
+                <label class="btn btn-outline-primary m-3" @click="hosp_room = '雙人房'">
                   <input type="radio" class="btn-check" name="hosp_room" id="hosp_room_M" autocomplete="off" :checked="hosp_room ==='雙人房'">
                   <img src="/static/assets/images/questionnaire/bed2.png" style="width: 120px;">
                   <p>雙人房</p>
@@ -208,8 +216,8 @@
               <h3 class="h_title">
                 <span>&nbsp;&nbsp;呈上題，您希望可選擇的醫療院所涵蓋範圍？</span>
               </h3>
-              <div class="btn-group-toggle" data-toggle="buttons" style="display: flex;">
-                <div class="mx-3" style="justify-content: center; text-align: center;">
+              <div class="btn-group-toggle d-flex flex-wrap " data-toggle="buttons" style="display: flex;">
+                <div class="m-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="hosp_lv = '多數醫院'">
                     <input type="radio" class="btn-check" name="hosp_lv" id="hosp_lv_1" autocomplete="off" :checked="hosp_lv === '多數醫院'">
                     <img src="/static/assets/images/questionnaire/hosp3.png" style="width: 120px; ">
@@ -221,7 +229,7 @@
                     <span style="color:#0044aa;font-weight: bold;">多數</span>的醫院
                   </p>
                 </div>
-                <div class="mx-3" style="justify-content: center; text-align: center;">
+                <div class="m-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="hosp_lv = '部分醫院'">
                   <input type="radio" class="btn-check" name="hosp_lv" id="hosp_lv_2" autocomplete="off" :checked="hosp_lv === '部分醫院'">
                   <img src="/static/assets/images/questionnaire/hosp2.png" style="width: 120px; ">
@@ -233,7 +241,7 @@
                   <span style="color:#0044aa;font-weight: bold;">部分</span>的醫院
                 </p>
                 </div>
-                <div class="mx-3" style="justify-content: center; text-align: center;">
+                <div class="m-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="hosp_lv = '少數醫院'">
                   <input type="radio" class="btn-check" name="hosp_lv" id="hosp_lv_3" autocomplete="off" :checked="hosp_lv === '少數醫院'">
                   <img src="/static/assets/images/questionnaire/hosp1.png" style="width: 120px; ">
@@ -281,7 +289,7 @@
               <h3 class="h_title col-11">
                 <span>&nbsp;&nbsp;如果未來因意外或疾病，需要進行治療，您會傾向選擇哪種類型的治療方式？</span>
               </h3>
-              <div class="btn-group-toggle" data-toggle="buttons" style="display: flex;">
+              <div class="btn-group-toggle d-flex flex-wrap " data-toggle="buttons" style="display: flex;">
                 <div class="mx-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="payasyougo = '基礎方案'">
                     <input type="radio" class="btn-check" name="payasyougo" id="payasyougo_1" autocomplete="off" :checked="payasyougo === '基礎方案'">
@@ -325,7 +333,7 @@
               <h3 class="h_title col-11">
                 <span>&nbsp;&nbsp;如果未來不幸罹患癌症，您希望可以準備好哪些治療方式?</span>
               </h3>
-              <div class="btn-group-toggle" data-toggle="buttons" style="display: flex;">
+              <div class="btn-group-toggle d-flex flex-wrap " data-toggle="buttons" style="display: flex;">
                 <div class="mx-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="serious = '50'">
                     <input type="radio" class="btn-check" name="serious" id="serious_1" autocomplete="off" :checked="serious === '50'">
@@ -391,7 +399,7 @@
             <h3 class="h_title">
               <span>&nbsp;&nbsp;如果未來因意外或疾病，而處於長照狀態，您傾向哪種照護方式呢：</span>
             </h3>
-            <div class="btn-group-lg mx-3"  role="group" aria-label="Basic radio toggle button group">
+            <div class="btn-group-lg m-3"  role="group" aria-label="Basic radio toggle button group">
               <input v-model="longcare" v-bind:value="1" type="radio" id="longcare_1" class="btn-check " autocomplete="off" checked>
               <label class="btn btn-outline-primary mx-3 longcare_btn" for="longcare_1">家人照護</label>
               <input v-model="longcare" v-bind:value="2" type="radio" id="longcare_2" class="btn-check" autocomplete="off" >
@@ -405,8 +413,8 @@
             </div>
             <div v-if="longcare == 1">
               <br>
-              <h4>請選擇家人照護成本 (預期薪資區間)：</h4>
-              <div class="btn-group mx-3"  role="group" aria-label="Basic radio toggle button group">
+              <h4 class="ml-3">請選擇家人照護成本 (預期薪資區間)：</h4>
+              <div class="btn-group m-3"  role="group" aria-label="Basic radio toggle button group" >
                 <input v-model="longcare2" v-bind:value="1" type="radio" id="longcare2_1" class="btn-check" autocomplete="off">
                 <label class="btn btn-outline-primary" for="longcare2_1">1萬</label>
                 <input v-model="longcare2" v-bind:value="2" type="radio" id="longcare2_2" class="btn-check" autocomplete="off" >
@@ -459,7 +467,7 @@
             <div class="col-12 col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
               <h3 class="h_title">&nbsp;&nbsp;目前您每月為家庭支出的費用為何？</h3>
               <p class="mb-0" style="color: grey;">食衣住行、稅、孝親費、保母費、 子女教育費等</p>
-              <select class="form-select" aria-label="Default select example" v-model="home_exp" style="width: 500px;">
+              <select class="form-select col-xl-11 col-lg-11 col-md-11" aria-label="Default select example" v-model="home_exp">
                 <!-- <option selected>選擇每月支出金額</option> -->
                 <option v-for="item in exp_list" :value="item.value">{{ item.title }}</option>
               </select>
@@ -467,7 +475,7 @@
               <br>
               <h3 class="h_title">&nbsp;&nbsp;目前您每月所需繳交的貸款為何？</h3>
               <p class="mb-0" style="color: grey;">借款、房貸、車貸</p>
-              <select class="form-select" aria-label="Default select example" v-model="mydebt" style="width: 500px;">
+              <select class="form-select col-xl-11 col-lg-11 col-md-11" aria-label="Default select example" v-model="mydebt" >
                 <!-- <option selected>選擇債務金額</option> -->
                 <option v-for="item in debt_list" :value="item.value">{{ item.title }}</option>
               </select>
@@ -476,7 +484,7 @@
             <div class="col-12 col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="300">
               <h3 class="h_title">&nbsp;&nbsp;若不幸發生意外身故，您希望留給家人多少年的費用？</h3>
               <br>
-              <select class="form-select" aria-label="Default select example" v-model="mypay_year" style="width: 500px;">
+              <select class="form-select col-xl-11 col-lg-11 col-md-11" aria-label="Default select example" v-model="mypay_year" >
                 <!-- <option selected>選擇預期年數</option> -->
                 <option v-for="item in pay_year" :value="item.value">{{ item.title }}</option>
               </select>
