@@ -230,7 +230,9 @@ const app = Vue.createApp({
             let result = 0;
 			let s1 = this.longcare;
 			let s2 = this.longcare2;
+            let way = '';
             if (s1 == 1 ) {
+                way = '家庭照護'
                 if(s2 == 1) {result = 1}
                 if(s2 == 2) {result = 2}
                 if(s2 == 3) {result = 3}
@@ -239,12 +241,11 @@ const app = Vue.createApp({
                 if(s2 == 6) {result = 6}
                 if(s2 == 7) {result = 7}
             }
-            if (s1 == 2 ) {result = 7}
-            if (s1 == 3 ) {result = 3}
-            if (s1 == 4 ) {result = 2.5}
-            if (s1 == 5 ) {result = 5.5}
-            if(result+1 < 3.5){ return {value:3.5} }
-            return {value:result+1}
+            if (s1 == 2 ) {result = 7, way = '本國籍看護'}
+            if (s1 == 3 ) {result = 3, way = '外國籍看護'}
+            if (s1 == 4 ) {result = 2.5, way = '社區日照中心'}
+            if (s1 == 5 ) {result = 5.5, way = '安養機構'}
+            return {value:result+1, way:way}
         },
         prot_life(){
             let debt = parseInt(this.mydebt);
@@ -252,10 +253,10 @@ const app = Vue.createApp({
             let exp = parseInt(this.home_exp);
             let result = (debt+exp) *12 *y;
             let age = this.age
-            if (age < 16) { return {value:61.5, age:this.age }}
-            if (age >= 16 & age<=24) { return {value:300, age:this.age } }
-            if (age > 16 & result < 300 ) { return {value:300, age:this.age } }
-            return {value:result.toLocaleString(), age:this.age}
+            if (age < 16) { return {value:61.5}}
+            if (age >= 16) { 
+                return {value:result } 
+            }
         },
 
     },
@@ -303,25 +304,76 @@ function serious_detail(){
 }
 
 function accident_detail(){
-    let vm = app_1.prot_life
-    if(vm.age <16){ $("#myaccident").attr("src", "/static/assets/images/prot/accident/accident1.JPG"); $('#myaccident_value').text("61.5") }
-    if(vm.age >=16 & vm.age <=24){ $("#myaccident").attr("src", "/static/assets/images/prot/accident/accident2.JPG"); $('#myaccident_value').text(vm.value.toLocaleString()) }
-    if(vm.age >24){ $("#myaccident").attr("src", "/static/assets/images/prot/accident/accident3.JPG"); $('#myaccident_value').text(vm.value.toLocaleString()) }
+    let vm = app_1.prot_life;
+    let hosp = app_1.prot_hosp.value;
+    let age = app_1.age.toString().padStart(2, '0');;
+    let gender = app_1.gender;
+    let mypay_year = app_1.mypay_year;
+    let home_exp = app_1.home_exp;
+    let mydebt = app_1.mydebt;
+
+    if(age <16){ 
+        $("#myaccident1").attr("src", "/static/assets/images/prot/accident/accident2.JPG"); 
+        $('#myaccident_value1').text("61.5萬元") ;
+        $('#myaccident_value2').text("") 
+        $('#myaccident_mypay_year').text('') ;
+        $('#myaccident_home_exp').text('') ;
+        $('#myaccident_mydebt').text('') ;
+    }
+    if(age >=16){ 
+        $("#myaccident1").attr("src", "/static/assets/images/prot/accident/accident1.JPG");
+        $('#myaccident_value1').text(vm.value.toLocaleString()+"萬元");
+        $('#myaccident_value2').text(vm.value.toLocaleString()+"萬元");
+        $('#myaccident_mypay_year').text(mypay_year+"年") ;
+        $('#myaccident_home_exp').text(home_exp+"萬") ;
+        $('#myaccident_mydebt').text(mydebt+"萬") ;
+    }
+    $('#myaccident_hosp').text(hosp.toLocaleString()+"元") 
+    $('#myaccident_pay').text("10萬元") 
+    $('#myaccident_age').text(age) 
+    $('#myaccident_gender').text(gender) 
+    
     // console.log(vm)
     
 }
 
 function longcare_detail(){
     let vm = app_1.prot_longcare
+    let age = app_1.age.toString().padStart(2, '0');;
+    let gender = app_1.gender;
     // console.log(vm)
-    $("#mylongcare").attr("src", "/static/assets/images/prot/longcare/longcare.JPG");
-    $('#mylongcare_value').text(vm.value.toLocaleString()) ;
+    $("#mylongcare_value1").text((vm.value.toLocaleString())+"萬");
+    $("#mylongcare_value2").text((vm.value.toLocaleString()-1)+"萬");
+    $("#mylongcare_way").text(vm.way);
+    $('#mylongcare_age').text(age) ;
+    $('#mylongcare_gender').text(gender) ;
 }
 
 function life_detail(){
-    let vm = app_1.prot_life
+    let vm = app_1.prot_life;
+    let age = app_1.age.toString().padStart(2, '0');;
+    let gender = app_1.gender;
+    let mypay_year = app_1.mypay_year;
+    let home_exp = app_1.home_exp;
+    let mydebt = app_1.mydebt;
+    if(age <16){ 
+        $("#mylife").attr("src", "/static/assets/images/prot/life/life2.JPG"); 
+        $('#mylife_value1').text("61.5萬元") ;
+        $('#mylife_value2').text("") 
+        $('#mylife_mypay_year').text('') ;
+        $('#mylife_home_exp').text('') ;
+        $('#mylife_mydebt').text('') ;
+    }
+    if(age >=16){ 
+        $("#mylife").attr("src", "/static/assets/images/prot/life/life1.JPG");
+        $('#mylife_value1').text(vm.value.toLocaleString()+"萬元");
+        $('#mylife_value2').text(vm.value.toLocaleString()+"萬元");
+        $('#mylife_mypay_year').text(mypay_year+"年") ;
+        $('#mylife_home_exp').text(home_exp+"萬") ;
+        $('#mylife_mydebt').text(mydebt+"萬") ;
+    }
+    $('#mylife_age').text(age) 
+    $('#mylife_gender').text(gender) 
+    
     // console.log(vm)
-    if(vm.age <16){ $("#mylife").attr("src", "/static/assets/images/prot/life/life1.JPG"); $('#mylife_value').text("61.5") }
-    if(vm.age >=16 & vm.age <=24){ $("#mylife").attr("src", "/static/assets/images/prot/life/life2.JPG"); $('#mylife_value').text(vm.value.toLocaleString()) }
-    if(vm.age >24){ $("#mylife").attr("src", "/static/assets/images/prot/life/life3.JPG"); $('#mylife_value').text(vm.value.toLocaleString()) }
 }

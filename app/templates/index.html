@@ -86,21 +86,29 @@
       <section class="ln-section d-flex min-vh-100" data-anchor="home" data-tooltip="Home" data-ui="light" data-navbar="navbar-dark">
         <div class="overlay overlay-advanced">
           <div class="overlay-inner bg-image-holder bg-cover bg-bottom-center">
-            <img src="/static/assets/images/index.jpg" alt="background">
+            <img src="/static/assets/images/index.png" alt="background">
           </div>
-          <div class="overlay-inner bg-dark opacity-70"></div>
+          <div class="overlay-inner bg-dark opacity-80"></div>
         </div>
         <div class="container align-self-center text-white">
           <div class="row">
             <div class="col-12 col-lg-12 col-xl-12">
-
-              <h1 class="mb-4 animated" data-animation="fadeInUp" style="font-size: 5rem;">保障藍圖計算器</h1>
-              <p class="mb-12 animated" data-animation="fadeInUp"style="font-size: 2rem;" data-animation-delay="200">輸入基本資料及回答相關保障需求問項，就能了解您最適的保障額度。</p>
-              <br>
-              <br>
-              <br>
-              <a href="#quest1" class="btn btn-white mr-3 scrollto animated" data-animation="fadeInUp" data-animation-delay="400" style="font-size: 2rem;">開始檢測</a>
-
+              <div v-if="isMobile" >
+                <h1 class="mb-4 animated" data-animation="fadeInUp" style="font-size: 8vw">保障藍圖計算器</h1>
+                <p class="mb-12 animated" data-animation="fadeInUp"style="font-size: 4vw" data-animation-delay="200">輸入基本資料及回答相關保障需求問項，就能了解您最適的保障額度。</p>
+                <br>
+                <br>
+                <br>
+                <a href="#quest1" class="btn btn-white mr-3 scrollto animated" data-animation="fadeInUp" data-animation-delay="400" style="font-size: 4vw;">開始檢測</a>
+              </div>
+              <div v-else >
+                <h1 class="mb-4 animated" data-animation="fadeInUp" style="font-size: 5rem">保障藍圖計算器</h1>
+                <p class="mb-12 animated" data-animation="fadeInUp"style="font-size: 2rem" data-animation-delay="200">輸入基本資料及回答相關保障需求問項，就能了解您最適的保障額度。</p>
+                <br>
+                <br>
+                <br>
+                <a href="#quest1" class="btn btn-white mr-3 scrollto animated" data-animation="fadeInUp" data-animation-delay="400" style="font-size: 2rem;">開始檢測</a>
+              </div>
             </div>
           </div>
         </div>
@@ -109,10 +117,12 @@
       <section class="ln-section d-xl-flex" data-anchor="quest1" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
         <div class="container align-self-xl-center">
           <div class="row mb-4">
-            <div class="col-12 col-xl-12">
+            <div class="col-8 col-xl-8">
               <h1 class="mb-4 animated" data-animation="fadeInUp" >讓我們開始保障藍圖評估吧！</h1>
             </div>
-            <span class="mb-4 animated" style="text-align: right;color: gray;">完成度 ■■■■<span style="color: #0D6EFD;">■</span></span>
+            <div class="col-4 text-right">
+              <span class="mb-4 animated" style="color: gray;">完成度 ■■■■<span style="color: #0D6EFD;">■</span></span>
+            </div>
           </div>
           <div class="row">
             <div class="col-12 col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
@@ -122,12 +132,12 @@
               <div class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-primary m-3" for="gender_M" @click="gender = '男'">
                   <input type="radio" class="btn-check" name="gender" id="gender_M" autocomplete="off" :checked="gender === '男'">
-                  <img src="/static/assets/images/questionnaire/M.png" style="width: 120px; ">
+                  <img src="/static/assets/images/questionnaire/M.png" style="width: 8rem;  padding: 1rem;">
                   <p>男性</p>
                 </label>
                 <label class="btn btn-outline-primary m-3" for="gender_F" @click="gender = '女'">
                   <input type="radio" class="btn-check" name="gender" id="gender_F" autocomplete="off" :checked="gender === '女'">
-                  <img src="/static/assets/images/questionnaire/F.png" style="width: 120px;">
+                  <img src="/static/assets/images/questionnaire/F.png" style="width: 8rem; padding: 1rem;">
                   <p>女性</p>
                 </label>
               </div>
@@ -168,15 +178,12 @@
                   <input v-model="area" v-bind:value="'東部'" type="radio" class="btn-check" name="area" id="area_E" autocomplete="off">
                   <label class="btn btn-outline-primary" for="area_E" style="position: absolute; top: 45.5%; left: 78.5%">東部</label>
                 </div>
-                <p style="position: absolute; top: 22%; left: 19.5%; color: gray; font-size: small;">基隆 台北 新北 桃園 新竹</p>
-                <p style="position: absolute; top: 47.5%; left: 7%; color: gray; font-size: small;">苗栗 台中 彰化 南投 雲林 嘉義</p>
-                <p style="position: absolute; top: 76.5%; left: 13.5%; color: gray; font-size: small;">台南 高雄 屏東</p>
-                <p style="position: absolute; top: 60.5%; left: 78.5%; color: gray; font-size: small;">宜蘭 花蓮 台東</p>
+                <p style="position: absolute; top: 22%; left: 19.5%; color: gray; font-size: 0.8vw;text-align: right; ">基隆 台北 新北 桃園 新竹</p>
+                <p style="position: absolute; top: 47.5%; left: 7%; color: gray; font-size: 0.8vw;text-align: right; ">苗栗 台中 彰化 南投 雲林 嘉義</p>
+                <p style="position: absolute; top: 76.5%; left: 13.5%; color: gray; font-size: 0.8vw;text-align: right; ">台南 高雄 屏東</p>
+                <p style="position: absolute; top: 60.5%; left: 78.5%; color: gray; font-size: 0.8vw;text-align: right; ">宜蘭 花蓮 台東</p>
               </div>
-              
-              <br>
-              <br>
-              <br>
+
               <div class="text-right">
                 <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="750" onclick="location.href='#quest2'" style="font-size: 1rem;">往下滑還有唷</button>
               </div>
@@ -188,10 +195,12 @@
       <section class="ln-section d-xl-flex" data-anchor="quest2" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
         <div class="container align-self-xl-center">
           <div class="row mb-4">
-            <div class="col-12 col-xl-12">
+            <div class="col-8 col-xl-8">
               <h1 class="mb-4 animated" data-animation="fadeInUp">您的醫療行為偏好</h1>
             </div>
-            <span class="mb-4 animated" style="text-align: right;color: gray;">完成度 ■■■<span style="color: #0D6EFD;">■■</span></span>
+            <div class="col-4 text-right">
+              <span class="mb-4 animated" style="color: gray;">完成度 ■■■<span style="color: #0D6EFD;">■■</span></span>
+            </div>
           </div>
           <div class="row">
             <div class="col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
@@ -201,12 +210,12 @@
               <div class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-primary m-3" @click="hosp_room = '單人房'">
                   <input type="radio" class="btn-check" name="hosp_room" id="hosp_room_S" autocomplete="off" :checked="hosp_room === '單人房'">
-                  <img src="/static/assets/images/questionnaire/bed1.png" style="width: 120px; ">
+                  <img src="/static/assets/images/questionnaire/bed1.png" style="width: 8rem; padding: 1rem;">
                   <p>單人房</p>
                 </label>
                 <label class="btn btn-outline-primary m-3" @click="hosp_room = '雙人房'">
                   <input type="radio" class="btn-check" name="hosp_room" id="hosp_room_M" autocomplete="off" :checked="hosp_room ==='雙人房'">
-                  <img src="/static/assets/images/questionnaire/bed2.png" style="width: 120px;">
+                  <img src="/static/assets/images/questionnaire/bed2.png" style="width: 8rem; padding: 1rem;">
                   <p>雙人房</p>
                 </label>
               </div>
@@ -220,7 +229,7 @@
                 <div class="m-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="hosp_lv = '多數醫院'">
                     <input type="radio" class="btn-check" name="hosp_lv" id="hosp_lv_1" autocomplete="off" :checked="hosp_lv === '多數醫院'">
-                    <img src="/static/assets/images/questionnaire/hosp3.png" style="width: 120px; ">
+                    <img src="/static/assets/images/questionnaire/hosp3.png" style="width: 8rem; padding: 1rem;">
                     <p>多數醫院</p>
                   </label>
                   <p>
@@ -232,7 +241,7 @@
                 <div class="m-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="hosp_lv = '部分醫院'">
                   <input type="radio" class="btn-check" name="hosp_lv" id="hosp_lv_2" autocomplete="off" :checked="hosp_lv === '部分醫院'">
-                  <img src="/static/assets/images/questionnaire/hosp2.png" style="width: 120px; ">
+                  <img src="/static/assets/images/questionnaire/hosp2.png" style="width: 8rem; padding: 1rem;">
                   <p>部分醫院</p>
                 </label>
                 <p>
@@ -244,7 +253,7 @@
                 <div class="m-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="hosp_lv = '少數醫院'">
                   <input type="radio" class="btn-check" name="hosp_lv" id="hosp_lv_3" autocomplete="off" :checked="hosp_lv === '少數醫院'">
-                  <img src="/static/assets/images/questionnaire/hosp1.png" style="width: 120px; ">
+                  <img src="/static/assets/images/questionnaire/hosp1.png" style="width: 8rem; padding: 1rem;">
                   <p>少數病房</p>
                 </label>
                 <p>
@@ -254,10 +263,7 @@
                 </p>
                 </div>
               </div>
-            
-              <br>
-              <br>
-              <br>
+
               <br>
               <div class="text-right">
                 <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="150" onclick="location.href='#quest3'" style="font-size: 1rem;">往下滑還有唷</button>
@@ -279,10 +285,12 @@
       <section class="ln-section d-xl-flex" data-anchor="quest3" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
         <div class="container align-self-xl-center">
           <div class="row mb-4">
-            <div class="col-12 col-xl-6">
+            <div class="col-8 col-xl-8">
               <h1 class="mb-4 animated" data-animation="fadeInUp">您的醫療行為偏好</h1>
             </div>
-            <span class="mb-4 animated" style="text-align: right;color: gray;">完成度 ■■<span style="color: #0D6EFD;">■■■</span></span>
+            <div class="col-4 text-right">
+              <span class="mb-4 animated" style="color: gray;">完成度 ■■<span style="color: #0D6EFD;">■■■</span></span>
+            </div>
           </div>
           <div class="row">
             <div class="col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
@@ -293,7 +301,7 @@
                 <div class="mx-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="payasyougo = '基礎方案'">
                     <input type="radio" class="btn-check" name="payasyougo" id="payasyougo_1" autocomplete="off" :checked="payasyougo === '基礎方案'">
-                    <img src="/static/assets/images/questionnaire/pay1.png" style="width: 120px; ">
+                    <img src="/static/assets/images/questionnaire/pay1.png" style="width: 8rem; padding: 1rem;">
                     <p>基礎方案</p>
                   </label>
                   <p>
@@ -305,7 +313,7 @@
                 <div class="mx-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="payasyougo = '進階方案'">
                   <input type="radio" class="btn-check" name="payasyougo" id="payasyougo_2" autocomplete="off" :checked="payasyougo === '進階方案'">
-                  <img src="/static/assets/images/questionnaire/pay2.png" style="width: 120px; ">
+                  <img src="/static/assets/images/questionnaire/pay2.png" style="width: 8rem; padding: 1rem;">
                   <p>進階方案</p>
                 </label>
                 <p>
@@ -317,7 +325,7 @@
                 <div class="mx-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="payasyougo = '豐富方案'">
                   <input type="radio" class="btn-check" name="payasyougo" id="payasyougo_3" autocomplete="off" :checked="payasyougo === '豐富方案'">
-                  <img src="/static/assets/images/questionnaire/pay3.png" style="width: 120px; ">
+                  <img src="/static/assets/images/questionnaire/pay3.png" style="width: 8rem; padding: 1rem;">
                   <p>豐富方案</p>
                 </label>
                 <p>
@@ -337,7 +345,7 @@
                 <div class="mx-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="serious = '50'">
                     <input type="radio" class="btn-check" name="serious" id="serious_1" autocomplete="off" :checked="serious === '50'">
-                    <img src="/static/assets/images/questionnaire/serious1.png" style="width: 120px; ">
+                    <img src="/static/assets/images/questionnaire/serious1.png" style="width: 8rem; padding: 1rem;">
                     <p>基礎療程</p>
                   </label>
                   <p>
@@ -348,7 +356,7 @@
                 <div class="mx-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="serious = '250'">
                   <input type="radio" class="btn-check" name="serious" id="serious_2" autocomplete="off" :checked="serious === '250'">
-                  <img src="/static/assets/images/questionnaire/serious2.png" style="width: 120px; ">
+                  <img src="/static/assets/images/questionnaire/serious2.png" style="width: 8rem; padding: 1rem;">
                   <p>進階療程</p>
                 </label>
                 <p>
@@ -359,7 +367,7 @@
                 <div class="mx-3" style="justify-content: center; text-align: center;">
                   <label class="btn btn-outline-primary" @click="serious = '500'">
                   <input type="radio" class="btn-check" name="serious" id="serious_3" autocomplete="off" :checked="serious === '500'">
-                  <img src="/static/assets/images/questionnaire/serious3.png" style="width: 120px; ">
+                  <img src="/static/assets/images/questionnaire/serious3.png" style="width: 8rem; padding: 1rem;">
                   <p>豐富療程</p>
                 </label>
                 <p>
@@ -369,10 +377,6 @@
                 </p>
                 </div>
               </div>
-              <br>
-              <br>
-              <br>
-              <br>
               <div class="text-right">
                 <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="150" onclick="location.href='#quest4'" style="font-size: 1rem;">往下滑還有唷</button>
               </div>
@@ -390,31 +394,58 @@
       <section class="ln-section d-xl-flex" data-anchor="quest4" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
         <div class="container align-self-xl-center">
           <div class="row mb-4">
-            <div class="col-12 col-xl-6">
+            <div class="col-8 col-xl-8">
               <h1 class="mb-4 animated" data-animation="fadeInUp">您的醫療行為偏好</h1>
             </div>
-            <span class="mb-4 animated" style="text-align: right;color: gray;">完成度 ■<span style="color: #0D6EFD;">■■■■</span></span>
+            <div class="col-4 text-right">
+              <span class="mb-4 animated" style="color: gray;">完成度 ■<span style="color: #0D6EFD;">■■■■</span></span>
+            </div>
           </div>
           <div class="col-md-12 col-lg-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
             <h3 class="h_title">
               <span>&nbsp;&nbsp;如果未來因意外或疾病，而處於長照狀態，您傾向哪種照護方式呢：</span>
             </h3>
-            <div class="btn-group-lg m-3"  role="group" aria-label="Basic radio toggle button group">
-              <input v-model="longcare" v-bind:value="1" type="radio" id="longcare_1" class="btn-check " autocomplete="off" checked>
-              <label class="btn btn-outline-primary mx-3 longcare_btn" for="longcare_1">家人照護</label>
-              <input v-model="longcare" v-bind:value="2" type="radio" id="longcare_2" class="btn-check" autocomplete="off" >
-              <label class="btn btn-outline-primary mx-3 longcare_btn" for="longcare_2">本國籍看護</label>
-              <input v-model="longcare" v-bind:value="3" type="radio" id="longcare_3" class="btn-check" autocomplete="off" >
-              <label class="btn btn-outline-primary mx-3 longcare_btn" for="longcare_3">外國籍看護</label>
-              <input v-model="longcare" v-bind:value="4" type="radio" id="longcare_4" class="btn-check" autocomplete="off" >
-              <label class="btn btn-outline-primary mx-3 longcare_btn" for="longcare_4">社區日照中心</label>
-              <input v-model="longcare" v-bind:value="5" type="radio" id="longcare_5" class="btn-check" autocomplete="off" >
-              <label class="btn btn-outline-primary mx-3 longcare_btn" for="longcare_5">安養機構</label>
+            <div class="btn-group-toggle d-flex flex-wrap " data-toggle="buttons" style="display: flex;">
+              <div class="mx-3" style="justify-content: center; text-align: center;">
+                <label class="btn btn-outline-primary" @click="longcare = '1'">
+                  <input type="radio" class="btn-check" id="longcare_1" autocomplete="off" :checked="longcare === '1'">
+                  <img src="/static/assets/images/questionnaire/care1.png" style="width: 8rem; padding: 1rem;">
+                  <p>家人照護</p>
+                </label>
+              </div>
+              <div class="mx-3" style="justify-content: center; text-align: center;">
+                <label class="btn btn-outline-primary" @click="longcare = '2'">
+                  <input type="radio" class="btn-check" id="longcare_2" autocomplete="off" :checked="longcare === '2'">
+                  <img src="/static/assets/images/questionnaire/care2.png" style="width: 8rem;  padding: 1rem;">
+                  <p>本國籍看護</p>
+                </label>
+              </div>
+              <div class="mx-3" style="justify-content: center; text-align: center;">
+                <label class="btn btn-outline-primary" @click="longcare = '3'">
+                  <input type="radio" class="btn-check" id="longcare_3" autocomplete="off" :checked="longcare === '3'">
+                  <img src="/static/assets/images/questionnaire/care3.png" style="width: 8rem;  padding: 1rem;">
+                  <p>外國籍看護</p>
+                </label>
+              </div>
+              <div class="mx-3" style="justify-content: center; text-align: center;">
+                <label class="btn btn-outline-primary" @click="longcare = '4'">
+                  <input type="radio" class="btn-check" id="longcare_4" autocomplete="off" :checked="longcare === '4'">
+                  <img src="/static/assets/images/questionnaire/care4.png" style="width: 8rem;  padding: 1rem;">
+                  <p>社區日照中心</p>
+                </label>
+              </div>
+              <div class="mx-3" style="justify-content: center; text-align: center;">
+                <label class="btn btn-outline-primary" @click="longcare = '5'">
+                  <input type="radio" class="btn-check" id="longcare_5" autocomplete="off" :checked="longcare === '5'">
+                  <img src="/static/assets/images/questionnaire/care5.png" style="width: 8rem;  padding: 1rem;">
+                  <p>安養機構</p>
+                </label>
+              </div>
             </div>
             <div v-if="longcare == 1">
               <br>
               <h4 class="ml-3">請選擇家人照護成本 (預期薪資區間)：</h4>
-              <div class="btn-group m-3"  role="group" aria-label="Basic radio toggle button group" >
+              <div class="btn-group m-3 "  role="group" aria-label="Basic radio toggle button group" >
                 <input v-model="longcare2" v-bind:value="1" type="radio" id="longcare2_1" class="btn-check" autocomplete="off">
                 <label class="btn btn-outline-primary" for="longcare2_1">1萬</label>
                 <input v-model="longcare2" v-bind:value="2" type="radio" id="longcare2_2" class="btn-check" autocomplete="off" >
@@ -450,20 +481,20 @@
           <div class="row mb-4">
             <div class="col-12 col-xl-12">
               <h1 class="mb-4 animated" data-animation="fadeInUp">您的財務生活調查</h1>
-              <div v-show="age_check_under25">
+              <div v-show="age_check_under15">
                 <div class="col-12 col-xl-12" style="text-align: right;">
                   <span class="mb-4 animated" style="text-align: right;color: gray;">完成度<span style="color: #0D6EFD;">■■■■■</span></span>
                 </div>
-                <h3 class="mb-4 animated" data-animation="fadeInUp">年齡於24歲以下，尚未負擔太重的家庭財務責任。</h1>
+                <h3 class="mb-4 animated" data-animation="fadeInUp">年齡於15歲以下，尚未負擔太重的家庭財務責任。</h1>
                   <br>
                   <br>
                   <br>
                 <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="150" onclick="location.href='#myprotection'" style="font-size: 2rem;">往下觀看結果</button>
               </div>
             </div>
-            <span v-show="!age_check_under25" class="mb-4 animated" style="text-align: right;color: gray;">完成度<span style="color: #0D6EFD;">■■■■■</span></span>
+            <span v-show="!age_check_under15" class="mb-4 animated" style="text-align: right;color: gray;">完成度<span style="color: #0D6EFD;">■■■■■</span></span>
           </div>
-          <div class="row"  v-show="age_check_over24">
+          <div class="row"  v-show="!age_check_under15">
             <div class="col-12 col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
               <h3 class="h_title">&nbsp;&nbsp;目前您每月為家庭支出的費用為何？</h3>
               <p class="mb-0" style="color: grey;">食衣住行、稅、孝親費、保母費、 子女教育費等</p>
@@ -505,15 +536,14 @@
 
 
       <!-- Section - Our solutions -->
-      <section class="ln-section d-xl-flex " data-anchor="myprotection" data-tooltip="Our solutions" data-ui="light" data-navbar="navbar-dark">
+      <section class="ln-section d-xl-flex " data-anchor="myprotection" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
         <div class="overlay overlay-advanced">
           <div class="overlay-inner bg-image-holder bg-cover">
-            <!-- <img src="/static/assets/images/image-3.jpg" alt="background"> -->
-            <img src="/static/assets/images/myprotection.png" alt="background">
+            <img src="/static/assets/images/myprotection2.png" alt="background">
           </div>
-          <div class="overlay-inner bg-dark opacity-50"></div>
+          <div class="overlay-inner bg-dark opacity-0"></div>
         </div>
-        <div class="container align-self-xl-center text-white">
+        <div class="container align-self-xl-center text-black">
           <div class="row mb-8">
             <div class="col-12 col-xl-6">
               <h2 class="mb-4 animated" data-animation="fadeInUp">您的推薦保障額度：</h2>
@@ -542,15 +572,10 @@
               <div v-show="age_check_under15">
                 <h3 class="mb-0 h-prot">喪葬費用保險金 61.5 萬元</h3>
               </div>
-              <div v-show="age_check_between1624">
+              <div v-show="!age_check_under15">
                 <h3 class="mb-0 h-prot">意外身故 {{ prot_life.value }} 萬元</h3>
-                <h3 class="mb-0 h-prot">意外住院日額 {{ prot_hosp.value }} 元</h3>
-                <h3 class="mb-0 h-prot">傷害醫療限額 10 萬元/次</h3>
-              </div>
-              <div v-show="age_check_over24">
-                <h3 class="mb-0 h-prot">意外身故 {{ prot_life.value }} 萬元</h3>
-                <h3 class="mb-0 h-prot">意外住院日額 {{ prot_hosp.value }} 元</h3>
-                <h3 class="mb-0 h-prot">傷害醫療限額 10 萬元/次</h3>
+                <!-- <h3 class="mb-0 h-prot">意外住院日額 {{ prot_hosp.value }} 元</h3>
+                <h3 class="mb-0 h-prot">傷害醫療限額 10 萬元/次</h3> -->
               </div>
             </div>
 
@@ -564,13 +589,16 @@
               <div v-show="age_check_under15">
                 <h3 class="mb-0 h-prot">喪葬費用保險金 61.5 萬元</h3>
               </div>
-              <div v-show="age_check_between1624">
-                <h3 class="mb-0 h-prot">{{ prot_life.value }} 萬元</h3>
-              </div>
-              <div v-show="age_check_over24">
+              <div v-show="!age_check_under15">
                 <h3 class="mb-0 h-prot">{{ prot_life.value }} 萬元</h3>
               </div>
 
+            </div>
+
+            <div class="col-12">
+              <div class="text-right">
+                <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="600" style="font-size: 1rem;">點擊放大鏡可查看更多資訊唷</button>
+            </div>
             </div>
 
             
@@ -714,21 +742,27 @@
         <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
           <div id="carousel_prot_accident_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <!-- <button type="button" data-bs-target="#carousel_prot_accident_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
-              <!-- <button type="button" data-bs-target="#carousel_prot_accident_detail" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+              <button type="button" data-bs-target="#carousel_prot_accident_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel_prot_accident_detail" data-bs-slide-to="1" aria-label="Slide 2"></button>
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <div style="position: relative; ">
-                  <img src="" class="d-block w-100" id="myaccident">
-                  <div style="position: absolute; top: 21%; right: 27%; transform: translate(0%, -50%); text-align: right; font-size: 2.5vw; font-weight:bold; color: #67BB60;">
-                    <p id="myaccident_value"></p>
-                  </div>
+                  <img src="" class="d-block w-100" id="myaccident1">
+                  <p id="myaccident_value1" style="position: absolute; top: 29.8%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 2.5vw; font-weight:bold; color: #67BB60;"></p>
+                  <p id="myaccident_hosp" style="position: absolute; top: 38%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
+                  <p id="myaccident_pay" style="position: absolute; top: 44%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
+                  <p id="myaccident_age" style="position: absolute; top: 56.2%; left: 63.5%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: #67BB60;"></p>
+                  <p id="myaccident_gender" style="position: absolute; top: 56.2%; left: 70%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: #67BB60;"></p>
+                  <p id="myaccident_mypay_year" style="position: absolute; top: 75%; left: 79%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
+                  <p id="myaccident_home_exp" style="position: absolute; top: 75%; left: 55.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
+                  <p id="myaccident_mydebt" style="position: absolute; top: 75%; left: 66.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
+                  <p  id="myaccident_value2" style="position: absolute; top: 75%; left: 87%; transform: translate(0%, -50%); text-align: left; font-size: 2vw; font-weight:bold; color: #67BB60;"></p>
                 </div>
               </div>
-              <!-- <div class="carousel-item">
-                <img src="/static/assets/images/prot/serious/serious.JPG" class="d-block w-100" >
-              </div> -->
+              <div class="carousel-item">
+                <img src="/static/assets/images/prot/accident/accident3.JPG" class="d-block w-100" >
+              </div>
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carousel_prot_accident_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
             <button type="button" class="slick-next" data-bs-target="#carousel_prot_accident_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
@@ -746,21 +780,26 @@
         <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
           <div id="carousel_prot_longcare_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <!-- <button type="button" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
-              <!-- <button type="button" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+              <button type="button" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide-to="1" aria-label="Slide 2"></button>
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <div style="position: relative; ">
-                  <img src="" class="d-block w-100" id="mylongcare">
-                  <div style="position: absolute; top: 21%; right: 27%; transform: translate(0%, -50%); text-align: right; font-size: 2.5vw; font-weight:bold; color: #0BA056;">
-                    <p id="mylongcare_value"></p>
+                  <img src="/static/assets/images/prot/longcare/longcare1.JPG" class="d-block w-100" id="mylongcare">
+                  <div >
+                    <p id="mylongcare_way" style="position: absolute; top: 23%; left: 81%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: #457F80;"></p>
+                    <p id="mylongcare_value1" style="position: absolute; top: 33.5%; left: 79%; transform: translate(0%, -50%); text-align: left; font-size: 2.5vw; font-weight:bold; color: #457F80;"></p>
+                    <p id="mylongcare_value2" style="position: absolute; top: 78%; left: 64%; transform: translate(0%, -50%); text-align: left; font-size: 2.5vw; font-weight:bold; color: #457F80;"></p>
+                    <p style="position: absolute; top: 78%; left: 84%; transform: translate(0%, -50%); text-align: left; font-size: 2.5vw; font-weight:bold; color: #457F80;">1萬</p>
+                    <p id="mylongcare_age" style="position: absolute; top: 18.8%; left: 62.5%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: #457F80;"></p>
+                    <p id="mylongcare_gender" style="position: absolute; top: 18.8%; left: 69.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: #457F80;"></p>
                   </div>
                 </div>
               </div>
-              <!-- <div class="carousel-item">
-                <img src="/static/assets/images/prot/serious/serious.JPG" class="d-block w-100" >
-              </div> -->
+              <div class="carousel-item">
+                <img src="/static/assets/images/prot/longcare/longcare2.JPG" class="d-block w-100" >
+              </div>
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
             <button type="button" class="slick-next" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
@@ -778,21 +817,26 @@
         <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
           <div id="carousel_prot_life_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <!-- <button type="button" data-bs-target="#carousel_prot_life_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
-              <!-- <button type="button" data-bs-target="#carousel_prot_life_detail" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+              <button type="button" data-bs-target="#carousel_prot_life_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel_prot_life_detail" data-bs-slide-to="1" aria-label="Slide 2"></button>
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <div style="position: relative; ">
                   <img src="" class="d-block w-100" id="mylife">
-                  <div style="position: absolute; top: 21%; right: 27%; transform: translate(0%, -50%); text-align: right; font-size: 2.5vw; font-weight:bold; color: #0BA056;">
-                    <p id="mylife_value"></p>
-                  </div>
+                  <p id="mylife_value1" style="position: absolute; top: 30%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 2.5vw; font-weight:bold; color: #457F80;"></p>
+                  <p id="mylife_age" style="position: absolute; top: 19.6%; left: 63.5%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: #457F80;"></p>
+                  <p id="mylife_gender" style="position: absolute; top: 19.6%; left: 70%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: #457F80;"></p>
+                  <p id="mylife_mypay_year" style="position: absolute; top: 68%; left: 79%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #457F80;"></p>
+                  <p id="mylife_home_exp" style="position: absolute; top: 68%; left: 55.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #457F80;"></p>
+                  <p id="mylife_mydebt" style="position: absolute; top: 68%; left: 66.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #457F80;"></p>
+                  <p  id="mylife_value2" style="position: absolute; top: 68%; left: 87%; transform: translate(0%, -50%); text-align: left; font-size: 2vw; font-weight:bold; color: #457F80;"></p>
                 </div>
               </div>
-              <!-- <div class="carousel-item">
-                <img src="/static/assets/images/prot/serious/serious.JPG" class="d-block w-100" >
-              </div> -->
+              <div class="carousel-item">
+                <img src="/static/assets/images/prot/life/life3.JPG" class="d-block w-100" >
+              </div>
+            </div>
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carousel_prot_life_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
             <button type="button" class="slick-next" data-bs-target="#carousel_prot_life_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
@@ -849,7 +893,8 @@
     <!-- Theme JS -->
     <script src="/static/assets/js/main.js"></script>
     <!-- VUE -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+    <script src="/static/assets/js/vue3.min.js"></script>
     <!-- VUE -->
     <script src="/static/assets/js/app.js"></script>
 

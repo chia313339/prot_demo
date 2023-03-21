@@ -17022,6 +17022,8 @@ section {
   position: relative;
   width: 100%;
   padding: 5rem 0;
+  /* padding-top: 5rem 0; */
+  /* padding-bottom: 1rem 0; */
 }
 
 .list {
@@ -20238,7 +20240,7 @@ button.mfp-arrow.mfp-arrow-right::after {
   color: #030507;
   z-index: 100;
   transition: all 0.3s ease-out;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  box-shadow: 1px 1px 5px #888888;
 }
 
 .slick-prev:hover,
