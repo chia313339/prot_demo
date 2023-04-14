@@ -52,10 +52,9 @@
     <nav class="site-navbar site-navbar-transparent navbar navbar-expand-lg navbar-dark fixed-top bg-white shadow-light p-lg-4" data-navbar-base="navbar-dark" data-navbar-toggled="navbar-light" data-navbar-scrolled="navbar-light">
 
       <!-- Brand -->
-      <a class="navbar-brand" href="#home">
+      <a class="navbar-brand" href="#home" >
         <h2>國泰人壽</h2>
       </a>
-
       <!-- <p class="navbar-nav ml-auto" style="color: gray;">僅為內部教育訓練使用，不得作為宣傳或行銷資料，以免觸法</p> -->
 
     </nav>
@@ -78,17 +77,18 @@
       </div>
     </div>
 
+    <div class="chapter-position" id="chapter-position" style="display: none;">
+    </div>
 
     <!-- Fullpage content -->
     <div class="ln-fullpage" data-navigation="true" id="app">
-
       <!-- Section - Home -->
       <section class="ln-section d-flex min-vh-100" data-anchor="home" data-tooltip="Home" data-ui="light" data-navbar="navbar-dark">
         <div class="overlay overlay-advanced">
           <div class="overlay-inner bg-image-holder bg-cover bg-bottom-center">
             <img src="/static/assets/images/index.png" alt="background">
           </div>
-          <div class="overlay-inner bg-dark opacity-80"></div>
+          <div class="overlay-inner bg-dark opacity-70"></div>
         </div>
         <div class="container align-self-center text-white">
           <div class="row">
@@ -105,8 +105,6 @@
                 <h1 class="mb-4 animated" data-animation="fadeInUp" style="font-size: 5rem">保障藍圖計算器</h1>
                 <p class="mb-12 animated" data-animation="fadeInUp"style="font-size: 2rem" data-animation-delay="200">輸入基本資料及回答相關保障需求問項，就能了解您最適的保障額度。</p>
                 <br>
-                <br>
-                <br>
                 <a href="#quest1" class="btn btn-white mr-3 scrollto animated" data-animation="fadeInUp" data-animation-delay="400" style="font-size: 2rem;">開始檢測</a>
               </div>
             </div>
@@ -120,8 +118,8 @@
             <div class="col-8 col-xl-8">
               <h1 class="mb-4 animated" data-animation="fadeInUp" >讓我們開始保障藍圖評估吧！</h1>
             </div>
-            <div class="col-4 text-right">
-              <span class="mb-4 animated" style="color: gray;">完成度 ■■■■<span style="color: #0D6EFD;">■</span></span>
+            <div class="col-4 text-right completeness">
+              <span class="mb-4 animated" style="color: gray;">問卷進度 <span style="color: #2a9696;">■</span>■■■■</span>
             </div>
           </div>
           <div class="row">
@@ -167,7 +165,7 @@
                 </select>
               </div>
               <div v-if="!isMobile" class="image-container" style="max-width:100%;max-height:100%;">
-                <img src="/static/assets/images/questionnaire/tw2.png" class="col-12" >
+                <img src="/static/assets/images/questionnaire/tw3.png" class="col-12" >
                 <div class="btn-group-lg" role="group" aria-label="Basic radio toggle button group">
                   <input v-model="area" v-bind:value="'北部'" type="radio" class="btn-check" name="area" id="area_N" autocomplete="off" checked>
                   <label class="btn btn-outline-primary btn-lg" for="area_N" style="position: absolute; top: 7%; left: 19.5%">北部</label>
@@ -198,14 +196,14 @@
             <div class="col-8 col-xl-8">
               <h1 class="mb-4 animated" data-animation="fadeInUp">您的醫療行為偏好</h1>
             </div>
-            <div class="col-4 text-right">
-              <span class="mb-4 animated" style="color: gray;">完成度 ■■■<span style="color: #0D6EFD;">■■</span></span>
+            <div class="col-4 text-right completeness">
+              <span class="mb-4 animated" style="color: gray;">問卷進度 <span style="color: #2a9696;">■■</span>■■■</span>
             </div>
           </div>
           <div class="row">
             <div class="col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
               <h3 class="h_title">
-                <span>&nbsp;&nbsp;如果未來有<span style="color:#0D6EFD;">住院</span>需求，您偏好的房型為何？</span>
+                <span>&nbsp;&nbsp;如果未來有<span style="color:#2a9696; font-weight: bold;">住院</span>需求，您偏好的房型為何？</span>
               </h3>
               <div class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-primary m-3" @click="hosp_room = '單人房'">
@@ -235,7 +233,7 @@
                   <p>
                     足額的住院保障<br>
                     可以選擇<br>
-                    <span style="color:#0044aa;font-weight: bold;">多數</span>的醫院
+                    <span style="color:#247e7e;font-weight: bold;">多數</span>的醫院
                   </p>
                 </div>
                 <div class="m-3" style="justify-content: center; text-align: center;">
@@ -247,7 +245,7 @@
                 <p>
                   基本的住院保障<br>
                   可以選擇<br>
-                  <span style="color:#0044aa;font-weight: bold;">部分</span>的醫院
+                  <span style="color:#247e7e;font-weight: bold;">部分</span>的醫院
                 </p>
                 </div>
                 <div class="m-3" style="justify-content: center; text-align: center;">
@@ -259,7 +257,7 @@
                 <p>
                   最低的住院保障<br>
                   可以選擇<br>
-                  <span style="color:#0044aa;font-weight: bold;">少數</span>的醫院
+                  <span style="color:#247e7e;font-weight: bold;">少數</span>的醫院
                 </p>
                 </div>
               </div>
@@ -288,8 +286,8 @@
             <div class="col-8 col-xl-8">
               <h1 class="mb-4 animated" data-animation="fadeInUp">您的醫療行為偏好</h1>
             </div>
-            <div class="col-4 text-right">
-              <span class="mb-4 animated" style="color: gray;">完成度 ■■<span style="color: #0D6EFD;">■■■</span></span>
+            <div class="col-4 text-right completeness">
+              <span class="mb-4 animated" style="color: gray;">問卷進度 <span style="color: #2a9696;">■■■</span>■■</span>
             </div>
           </div>
           <div class="row">
@@ -306,7 +304,7 @@
                   </label>
                   <p>
                     可用於支應<br>
-                    <span style="color:#0044aa;font-weight: bold;">部分自費醫材</span><br>
+                    <span style="color:#247e7e;font-weight: bold;">部分自費醫材</span><br>
                     的費用
                   </p>
                 </div>
@@ -318,7 +316,7 @@
                 </label>
                 <p>
                   可用於支應<br>
-                  <span style="color:#0044aa;font-weight: bold;">部分自費醫材、<br>新式療法</span><br>
+                  <span style="color:#247e7e;font-weight: bold;">部分自費醫材、<br>新式療法</span><br>
                   如達文西手術<br>(傷口小、恢復快)
                 </p>
                 </div>
@@ -330,8 +328,8 @@
                 </label>
                 <p>
                   可用於支應<br>
-                  <span style="color:#0044aa;font-weight: bold;">部分自費醫材、<br>新式療法<br>及無創手術</span><br>
-                  (無傷口、恢復外)
+                  <span style="color:#247e7e;font-weight: bold;">部分自費醫材、<br>新式療法<br>及無創手術</span><br>
+                  (無傷口；恢復快)
                 </p>
                 </div>
               </div>
@@ -350,7 +348,7 @@
                   </label>
                   <p>
                     可用於支應<br>
-                    <span style="color:#0044aa;font-weight: bold;">手術切除、<br>化療/放療</span>
+                    <span style="color:#247e7e;font-weight: bold;">手術切除、<br>化療/放療</span>
                   </p>
                 </div>
                 <div class="mx-3" style="justify-content: center; text-align: center;">
@@ -361,7 +359,7 @@
                 </label>
                 <p>
                   可用於支應<br>
-                  <span style="color:#0044aa;font-weight: bold;">手術切除、<br>化療/放療、<br>標靶藥物</span>
+                  <span style="color:#247e7e;font-weight: bold;">手術切除、<br>化療/放療、<br>標靶藥物</span>
                 </p>
                 </div>
                 <div class="mx-3" style="justify-content: center; text-align: center;">
@@ -372,7 +370,7 @@
                 </label>
                 <p>
                   可用於支應<br>
-                  <span style="color:#0044aa;font-weight: bold;">手術切除、<br>化療/放療、<br>標靶藥物、<br>最新免疫療法</span><br>
+                  <span style="color:#247e7e;font-weight: bold;">手術切除、<br>化療/放療、<br>標靶藥物、<br>最新免疫療法</span><br>
                   <span style="font-size: x-small;">(有機會更精準殺死癌細胞)</span>
                 </p>
                 </div>
@@ -397,8 +395,8 @@
             <div class="col-8 col-xl-8">
               <h1 class="mb-4 animated" data-animation="fadeInUp">您的醫療行為偏好</h1>
             </div>
-            <div class="col-4 text-right">
-              <span class="mb-4 animated" style="color: gray;">完成度 ■<span style="color: #0D6EFD;">■■■■</span></span>
+            <div class="col-4 text-right completeness">
+              <span class="mb-4 animated" style="color: gray;">問卷進度 <span style="color: #2a9696;">■■■■</span>■</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
@@ -465,11 +463,8 @@
           </div>
           <br>
               <br>
-              <br>
-              <br>
-              <br>
               <div class="text-right">
-                <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="150" onclick="location.href='#quest5'" style="font-size: 1rem;">往下滑還有唷</button>
+                <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="150" onclick="location.href='#quest5'" style="font-size: 1rem; ">往下滑還有唷</button>
           </div>
 
         </div>
@@ -482,8 +477,8 @@
             <div class="col-12 col-xl-12">
               <h1 class="mb-4 animated" data-animation="fadeInUp">您的財務生活調查</h1>
               <div v-show="age_check_under15">
-                <div class="col-12 col-xl-12" style="text-align: right;">
-                  <span class="mb-4 animated" style="text-align: right;color: gray;">完成度<span style="color: #0D6EFD;">■■■■■</span></span>
+                <div class="col-12 col-xl-12 completeness" style="text-align: right;">
+                  <span class="mb-4 animated" style="text-align: right;color: gray;">問卷進度<span style="color: #2a9696;">■■■■■</span></span>
                 </div>
                 <h3 class="mb-4 animated" data-animation="fadeInUp">年齡於15歲以下，尚未負擔太重的家庭財務責任。</h1>
                   <br>
@@ -492,7 +487,7 @@
                 <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="150" onclick="location.href='#myprotection'" style="font-size: 2rem;">往下觀看結果</button>
               </div>
             </div>
-            <span v-show="!age_check_under15" class="mb-4 animated" style="text-align: right;color: gray;">完成度<span style="color: #0D6EFD;">■■■■■</span></span>
+            <span v-show="!age_check_under15" class="mb-4 animated completeness" style="text-align: right;color: gray;">問卷進度<span style="color: #2a9696;">■■■■■</span></span>
           </div>
           <div class="row"  v-show="!age_check_under15">
             <div class="col-12 col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
@@ -552,23 +547,23 @@
           <div class="row align-items-center">
 
             <div class="col-12 col-lg-3 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
-              <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal" data-target="#prot_hosp_detail" onclick="hosp_detail()">住院保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+              <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal"  onclick="hosp_detail(); openModal('prot_hosp_detail')" >住院保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
               <h3 class="mb-0 h-prot">日額 {{ prot_hosp.value }} 元</h3>
               <br>
               <br>
-              <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal" data-target="#prot_operation_detail" onclick="operation_detail()">手術保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+              <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal" onclick="operation_detail(); openModal('prot_operation_detail')">手術保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
               <h3 class="mb-0 h-prot">保額 {{ prot_operation.value }} 元</h3>
               <br>
               <br>
-              <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal" data-target="#prot_pay_detail"  onclick="pay_detail()">實支實付<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+              <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal"  onclick="pay_detail(); openModal('prot_pay_detail')">實支實付<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
               <h3 class="mb-0 h-prot">{{ prot_pay.value1 }}</h3>
             </div>
             <div class="col-12 col-lg-3 mb-8 animated" data-animation="fadeInUp" data-animation-delay="300">
-              <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal" data-target="#prot_serious_detail" onclick="serious_detail()">重疾保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+              <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal" onclick="serious_detail(); openModal('prot_serious_detail')">重疾保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
               <h3 class="mb-0 h-prot">{{ serious }} 萬元</h3>
               <br>
               <br>
-              <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal" data-target="#prot_accident_detail" onclick="accident_detail()">意外保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+              <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal"  onclick="accident_detail(); openModal('prot_accident_detail')">意外保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
               <div v-show="age_check_under15">
                 <h3 class="mb-0 h-prot">喪葬費用保險金 61.5 萬元</h3>
               </div>
@@ -580,12 +575,12 @@
             </div>
 
             <div class="col-12 col-lg-3 mb-8 mb-lg-0 animated" data-animation="fadeInUp" data-animation-delay="450">
-              <button type="button" class="btn btn-p3 btn-lg btn-prot" data-toggle="modal" data-target="#prot_longcare_detail" onclick="longcare_detail()">長照保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+              <button type="button" class="btn btn-p3 btn-lg btn-prot" data-toggle="modal"  onclick="longcare_detail(); openModal('prot_longcare_detail')">長照保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
               <h3 class="mb-0 h-prot">{{ prot_longcare.value }} 萬元</h3>
             </div>
 
             <div class="col-12 col-lg-3 mb-8 mb-lg-0 animated" data-animation="fadeInUp" data-animation-delay="600">
-              <button type="button" class="btn btn-p3 btn-lg btn-prot" data-toggle="modal" data-target="#prot_life_detail" onclick="life_detail()">壽險保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+              <button type="button" class="btn btn-p3 btn-lg btn-prot" data-toggle="modal"  onclick="life_detail(); openModal('prot_life_detail')">壽險保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
               <div v-show="age_check_under15">
                 <h3 class="mb-0 h-prot">喪葬費用保險金 61.5 萬元</h3>
               </div>
@@ -598,6 +593,8 @@
             <div class="col-12">
               <div class="text-right">
                 <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="600" style="font-size: 1rem;">點擊放大鏡可查看更多資訊唷</button>
+                &nbsp;
+                <button class="btn btn-light animated" onclick="openModal('data_source')" data-animation="fadeInUp" data-animation-delay="650" style="font-size: 1rem; border: 1px solid #2b2b2b; background-color: #ffffff; ">資料來源</button>
             </div>
             </div>
 
@@ -606,7 +603,6 @@
           </div>
         </div>
       </section>
-
       
 
     </div>
@@ -616,25 +612,26 @@
     <div class="modal fade" id="prot_hosp_detail" tabindex="-1" role="dialog" aria-labelledby="prot_hosp_detail_h" aria-hidden="true" >
       <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content hover-parent">
+        <img src="/static/assets/images/close.png" class="close-icon" onclick="closeModal('prot_hosp_detail')" />
         <!-- Modal Body -->
-        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
-          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="modal-body text-black text-center">
+          <div id="carousel_prot_hosp_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carousel_prot_hosp_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel_prot_hosp_detail" data-bs-slide-to="1" aria-label="Slide 2"></button>
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <img src="" class="d-block w-100" id="myhosp">
-                <p style="position: absolute; top: 15.7%; left: 62.8%; text-align: right; font-size: 1.8vw; font-weight:bold;color: #00994E;" id="myhosp_age"></p>
-                <p style="position: absolute; top: 16%; left: 69.5%; text-align: right; font-size: 1.8vw; font-weight:bold; color: #00994E;"  id="myhosp_gender"></p>
+                <p style="position: absolute; top: 15.7%; left: 62.8%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(111, 191, 188);" id="myhosp_age"></p>
+                <p style="position: absolute; top: 16%; left: 69.5%; text-align: right; font-size: 1.8vw; font-weight:bold; color: rgb(111, 191, 188);"  id="myhosp_gender"></p>
               </div>
               <div class="carousel-item">
                 <img src="" class="d-block w-100" id="myhosp2"  data-bs-interval="30000">
               </div>
             </div>
-            <button type="button" class="slick-prev" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
-            <button type="button" class="slick-next" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
+            <button type="button" class="slick-prev" data-bs-target="#carousel_prot_hosp_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
+            <button type="button" class="slick-next" data-bs-target="#carousel_prot_hosp_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
           </div>
         </div>
       </div>
@@ -645,8 +642,9 @@
     <div class="modal fade" id="prot_operation_detail" tabindex="-1" role="dialog" aria-labelledby="prot_operation_detail_h" aria-hidden="true" >
       <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content hover-parent">
+        <img src="/static/assets/images/close.png" class="close-icon" onclick="closeModal('prot_operation_detail')" />
         <!-- Modal Body -->
-        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+        <div class="modal-body  text-black text-center">
           <div id="carousel_prot_operation_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carousel_prot_operation_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -655,11 +653,11 @@
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <img src="" class="d-block w-100" id="myoperation1">
-                <p style="position: absolute; top: 39.2%; left: 49.5%; text-align: right; font-size: 1.5vw; font-weight:bold; color: #0BA056;"  id="mmyoperation_age1"></p>
+                <p style="position: absolute; top: 39.2%; left: 49.5%; text-align: right; font-size: 1.5vw; font-weight:bold; color: rgb(93, 190, 189);"  id="mmyoperation_age1"></p>
               </div>
               <div class="carousel-item">
                 <img src="" class="d-block w-100" data-bs-interval="30000"  id="myoperation2">
-                <p style="position: absolute; top: 7.2%; left: 58.5%; text-align: right; font-size: 1.8vw; font-weight:bold; color: #0BA056;"  id="mmyoperation_age2"></p>
+                <p style="position: absolute; top: 7.2%; left: 58.5%; text-align: right; font-size: 1.8vw; font-weight:bold; color: rgb(93, 190, 189);"  id="mmyoperation_age2"></p>
               </div>
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carousel_prot_operation_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
@@ -669,13 +667,15 @@
       </div>
       </div>
     </div>
+    
 
     <!-- 實支保障_Modal -->
     <div class="modal fade" id="prot_pay_detail" tabindex="-1" role="dialog" aria-labelledby="pay_detail_h" aria-hidden="true" >
       <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content hover-parent">
+        <img src="/static/assets/images/close.png" class="close-icon" onclick="closeModal('prot_pay_detail')" />
         <!-- Modal Body -->
-        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+        <div class="modal-body  text-black text-center">
           <div id="carousel_pay_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carousel_pay_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -684,14 +684,17 @@
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <img src="" class="d-block w-100" id="mypay1">
-                <p style="position: absolute; top: 29%; left: 74.5%; text-align: right; font-size: 2.5vw; font-weight:bold;color: #00994E;" id="mypay_vaule1"></p>
-                <p style="position: absolute; top: 20%; left: 77%; text-align: right; font-size: 1.8vw; font-weight:bold;color: #00994E;" id="mypay_vaule2"></p>
-                <p style="position: absolute; top: 15.8%; left: 62%; text-align: right; font-size: 1.8vw; font-weight:bold;color: #00994E;" class="mypay_age"></p>
-                <p style="position: absolute; top: 44.8%; left: 65.6%; text-align: right; font-size: 1.8vw; font-weight:bold;color: #00994E;" class="mypay_age"></p>
+                <p style="position: absolute; top: 29%; left: 74.5%; text-align: right; font-size: 2.5vw; font-weight:bold;color: rgb(93, 190, 189);" id="mypay_vaule1"></p>
+                <p style="position: absolute; top: 20%; left: 77%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(93, 190, 189);" id="mypay_vaule2"></p>
+                <p style="position: absolute; top: 15.8%; left: 62%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(93, 190, 189);" class="mypay_age"></p>
+                <p style="position: absolute; top: 44.8%; left: 65.6%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(93, 190, 189);" class="mypay_age"></p>
               </div>
               <div class="carousel-item">
                 <img src="" class="d-block w-100" id="mypay2" data-bs-interval="30000">
-                <p style="position: absolute; top: 16%; left: 4%; text-align: right; font-size: 1.8vw; font-weight:bold;color: #00994E;" class="mypay_age"></p>
+                <img class="pay_lv1" src="/static/assets/images/star.png" style="position: absolute; top: 24.3%; left: 60.5%; width: 2.5vw;">
+                <img class="pay_lv2" src="/static/assets/images/star.png" style="position: absolute; top: 24.3%; left: 90.5%; width: 2.5vw;">
+                <img class="pay_lv3" src="/static/assets/images/star.png" style="position: absolute; top: 56.3%; left: 90.5%; width: 2.5vw;">
+                <p style="position: absolute; top: 16%; left: 4%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(93, 190, 189);" class="mypay_age"></p>
               </div>
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carousel_pay_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
@@ -706,8 +709,9 @@
     <div class="modal fade" id="prot_serious_detail" tabindex="-1" role="dialog" aria-labelledby="prot_serious_detail_h" aria-hidden="true" >
       <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content hover-parent">
+        <img src="/static/assets/images/close.png" class="close-icon" onclick="closeModal('prot_serious_detail')" />
         <!-- Modal Body -->
-        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+        <div class="modal-body  text-black text-center">
           <div id="carousel_prot_serious_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carousel_prot_serious_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -716,14 +720,18 @@
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <img src="" class="d-block w-100" id="myserious1">
-                <p style="position: absolute; top: 32.3%; left: 74.5%; text-align: right; font-size: 2.5vw; font-weight:bold;color: #67BB60;" id="myserious_vaule1"></p>
-                <p style="position: absolute; top: 21.5%; left: 81%; text-align: right; font-size: 1.8vw; font-weight:bold;color: #67BB60;" id="myserious_vaule2"></p>
-                <p style="position: absolute; top: 17.1%; left: 62.6%; text-align: right; font-size: 1.8vw; font-weight:bold;color: #67BB60;" class="myserious_age"></p>
-                <p style="position: absolute; top: 47.9%; left: 66.6%; text-align: right; font-size: 1.8vw; font-weight:bold;color: #67BB60;" class="myserious_age"></p>
+                <p style="position: absolute; top: 32.3%; left: 74.5%; text-align: right; font-size: 2.5vw; font-weight:bold;color: rgb(80, 106, 151);" id="myserious_vaule1"></p>
+                <p style="position: absolute; top: 21.5%; left: 81%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(80, 106, 151);" id="myserious_vaule2"></p>
+                <p style="position: absolute; top: 17.1%; left: 62.6%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(80, 106, 151);" class="myserious_age"></p>
+                <p style="position: absolute; top: 47.9%; left: 66.6%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(80, 106, 151);" class="myserious_age"></p>
               </div>
               <div class="carousel-item"  data-bs-interval="30000">
                 <img src="" class="d-block w-100" id="myserious2">
-                <p style="position: absolute; top: 14%; left: 3.5%; text-align: right; font-size: 1.8vw; font-weight:bold;color: #67BB60;" class="myserious_age"></p>
+                <img class="serious_lv1" src="/static/assets/images/star.png" style="position: absolute; top: 21.3%; left: 48.5%; width: 2.5vw;">
+                <img class="serious_lv1" src="/static/assets/images/star.png" style="position: absolute; top: 53.3%; left: 48.5%; width: 2.5vw;">
+                <img class="serious_lv2" src="/static/assets/images/star.png" style="position: absolute; top: 21.3%; left: 73.5%; width: 2.5vw;">
+                <img class="serious_lv3" src="/static/assets/images/star.png" style="position: absolute; top: 21.3%; left: 89.5%; width: 2.5vw;">
+                <p style="position: absolute; top: 14%; left: 3.5%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(80, 106, 151);" class="myserious_age"></p>
               </div>
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carousel_prot_serious_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
@@ -738,8 +746,9 @@
     <div class="modal fade" id="prot_accident_detail" tabindex="-1" role="dialog" aria-labelledby="prot_accident_detail_h" aria-hidden="true" >
       <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content hover-parent">
+        <img src="/static/assets/images/close.png" class="close-icon" onclick="closeModal('prot_accident_detail')" />
         <!-- Modal Body -->
-        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+        <div class="modal-body  text-black text-center">
           <div id="carousel_prot_accident_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carousel_prot_accident_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -749,15 +758,15 @@
               <div class="carousel-item active" data-bs-interval="50000" >
                 <div style="position: relative; ">
                   <img src="" class="d-block w-100" id="myaccident1">
-                  <p id="myaccident_value1" style="position: absolute; top: 29.8%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 2.5vw; font-weight:bold; color: #67BB60;"></p>
-                  <p id="myaccident_hosp" style="position: absolute; top: 38%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
-                  <p id="myaccident_pay" style="position: absolute; top: 44%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
-                  <p id="myaccident_age" style="position: absolute; top: 56.2%; left: 63.5%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: #67BB60;"></p>
-                  <p id="myaccident_gender" style="position: absolute; top: 56.2%; left: 70%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: #67BB60;"></p>
-                  <p id="myaccident_mypay_year" style="position: absolute; top: 75%; left: 79%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
-                  <p id="myaccident_home_exp" style="position: absolute; top: 75%; left: 55.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
-                  <p id="myaccident_mydebt" style="position: absolute; top: 75%; left: 66.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #67BB60;"></p>
-                  <p  id="myaccident_value2" style="position: absolute; top: 75%; left: 87%; transform: translate(0%, -50%); text-align: left; font-size: 2vw; font-weight:bold; color: #67BB60;"></p>
+                  <p id="myaccident_value1" style="position: absolute; top: 29.8%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 2.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
+                  <p id="myaccident_hosp" style="position: absolute; top: 38%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
+                  <p id="myaccident_pay" style="position: absolute; top: 44%; left: 74%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
+                  <p id="myaccident_age" style="position: absolute; top: 56.2%; left: 63.5%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
+                  <p id="myaccident_gender" style="position: absolute; top: 56.2%; left: 70%; transform: translate(0%, -50%); text-align: left; font-size: 1.8vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
+                  <p id="myaccident_mypay_year" style="position: absolute; top: 75%; left: 79%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
+                  <p id="myaccident_home_exp" style="position: absolute; top: 75%; left: 55.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
+                  <p id="myaccident_mydebt" style="position: absolute; top: 75%; left: 66.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
+                  <p  id="myaccident_value2" style="position: absolute; top: 75%; left: 87%; transform: translate(0%, -50%); text-align: left; font-size: 2vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -776,8 +785,9 @@
     <div class="modal fade" id="prot_longcare_detail" tabindex="-1" role="dialog" aria-labelledby="prot_longcare_detail_h" aria-hidden="true" >
       <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content hover-parent">
+        <img src="/static/assets/images/close.png" class="close-icon" onclick="closeModal('prot_longcare_detail')" />
         <!-- Modal Body -->
-        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+        <div class="modal-body  text-black text-center">
           <div id="carousel_prot_longcare_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carousel_prot_longcare_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -813,8 +823,9 @@
     <div class="modal fade" id="prot_life_detail" tabindex="-1" role="dialog" aria-labelledby="prot_life_detail_h" aria-hidden="true" >
       <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content hover-parent">
+        <img src="/static/assets/images/close.png" class="close-icon" onclick="closeModal('prot_life_detail')" />
         <!-- Modal Body -->
-        <div class="modal-body py-lg-5 px-lg-5 text-black text-center">
+        <div class="modal-body  text-black text-center">
           <div id="carousel_prot_life_detail" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carousel_prot_life_detail" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -840,6 +851,86 @@
             </div>
             <button type="button" class="slick-prev" data-bs-target="#carousel_prot_life_detail" data-bs-slide="prev"><i class="fas fa-angle-left"></i></button>
             <button type="button" class="slick-next" data-bs-target="#carousel_prot_life_detail" data-bs-slide="next"><i class="fas fa-angle-right"></i></button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- 資料來源_Modal -->
+    <div class="modal fade" id="data_source" tabindex="-1" role="dialog" aria-labelledby="prot_data_source" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content hover-parent">
+        <img src="/static/assets/images/close.png" class="close-icon" onclick="closeModal('data_source')" />
+        <!-- Modal Body -->
+        <div class="modal-body  text-black text-center">
+          <div id="carousel_data_source" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/static/assets/images/data_source.JPG" class="d-block w-100">
+                <p style="position: absolute; top: 6%; left: 10%; transform: translate(0%, -50%); text-align: left; font-size: 2.5vw; font-weight:bold; color: #353535;">資料來源</p>
+                <p style="position: absolute; top: 83.5%; left: 10%; transform: translate(0%, -50%); text-align: left; font-size: 2.5vw; font-weight:bold; color: #353535;">聯絡窗口</p>
+                <div>
+                  <ul style="position: absolute; top: 46.5%; left: 5%; transform: translate(0%, -50%); text-align: left; font-weight:bold; color: #6c6c6c;">
+                    <li>國泰人壽理賠資料(100-115年)</li>
+                    <li>國泰綜合醫院</li>
+                    <li>國立臺灣大學醫學院附設醫院</li>
+                    <li>國立成功大學醫學院附設醫院</li>
+                    <li>臺北市立萬芳醫院</li>
+                    <li>臺北市立聯合醫院</li>
+                    <li>臺北市政府衛生局</li>
+                    <li>臺北榮民總醫院</li>
+                    <li>臺北榮民總醫院桃園分院</li>
+                    <li>臺北醫學大學附設醫院</li>
+                    <li>台北慈濟醫院</li>
+                    <li>花蓮慈濟醫院</li>
+                    <li>衛生福利部雙和醫院</li>
+                    <li>衛生福利部桃園醫院</li>
+                    <li>衛生福利部中央健康保險暑</li>
+                    <li>林口長庚紀念醫院</li>
+                    <li>嘉義長庚紀念醫院</li>
+                    <li>高雄長庚紀念醫院</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul style="position: absolute; top: 46.5%; left: 30%; transform: translate(0%, -50%); text-align: left; font-weight:bold; color: #6c6c6c;">
+                    <li>馬偕紀念醫院</li>
+                    <li>台東馬偕紀念醫院</li>
+                    <li>中國醫藥大學附設醫院</li>
+                    <li>財團法人奇美醫院</li>
+                    <li>新光吳火獅紀念醫院</li>
+                    <li>長安醫院</li>
+                    <li>光田綜合醫院</li>
+                    <li>大師美學診所</li>
+                    <li>亞東紀念醫院</li>
+                    <li>戴德森醫療財團法人嘉義基督教醫院</li>
+                    <li>秀傳醫療社團法人秀傳紀念醫院</li>
+                    <li>彰化基督教醫療財團法人彰化基督教醫院</li>
+                    <li>義大醫療財團法人義大醫院</li>
+                    <li>高雄醫學大學附設中和紀念醫院</li>
+                    <li>行天宮醫療志業醫療財團法人恩主公醫院</li>
+                    <li>天主教聖馬爾定醫院</li>
+                    <li>天主教耕莘醫療財團法人耕莘醫院</li>
+                    <li>天主教靈醫會醫療財團法人羅東聖母醫院</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul style="position: absolute; top: 27%; left: 55%; transform: translate(0%, -50%); text-align: left; font-weight:bold; color: #6c6c6c;">
+                    <li>KingNet國家網路醫藥：&nbsp;<a href="https://www.kingnet.com.tw/medicine/generic?recno=1593399160" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                    <li>好險網(111.05、111.11)：&nbsp;<a href="https://www.phew.tw/article/cont/phewhealth/medical/Medicaltrends/5949/201904025949" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                      &nbsp;<a href="https://www.phew.tw/article/cont/phewhealth/medical/Medicaltrends/8806/202104278806" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                    <li>台北市立聯合醫院 醫病共享決策輔助平台(112.02)：&nbsp;<a href="https://sdm.tpech.gov.tw/xcsdm/cont?xsmsid=0I344395713692901115&sid=0J364356150079776812" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                    <li>買保險SmartBeb (110.09)：&nbsp;<a href="https://www.smartbeb.com.tw/article/Medical/id/831" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                    <li>元氣網(103.12、118.04)：&nbsp;<a href="https://health.udn.com/health/story/5967/557317" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                      &nbsp;<a href="https://health.udn.com/health/story/5966/3754210" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                    <li>財團法人癌症希望基金會(112.03)：&nbsp;<a href="https://ovariancancer.ecancer.org.tw/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                    <li>國泰人壽保險故事書</li>
+                    </ul>
+                </div>
+                <p style="position: absolute; top: 93.5%; left: 4%; transform: translate(0%, -50%); text-align: left; font-size: 1.3vw; font-weight:bold; color: #6c6c6c;">(02)2755-1399 分機7155、7117、7139、7166、2274、2267</p>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>

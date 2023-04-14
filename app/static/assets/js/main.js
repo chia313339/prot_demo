@@ -172,7 +172,7 @@ License: https://themeforest.net/licenses/standard
                 $('.overlay-global-color').css('background-color', sectionOverlayColor);
               }
               if(sectionOverlayOpacity){
-                 $('.overlay-global-color').css('opacity', sectionOverlayOpacity/100);
+                $('.overlay-global-color').css('opacity', sectionOverlayOpacity/100);
               }
 
               // Set Section Navbar Scheme
@@ -265,6 +265,7 @@ License: https://themeforest.net/licenses/standard
   }
 
   // [4. Scroll progress]
+
   function ln_scrollProgress(nextIndex) {
     if( getWindowWidth() >= 1200 ){
       if( nextIndex === 'none' && !$body.hasClass('ln-fullpage-active') ){
@@ -279,6 +280,7 @@ License: https://themeforest.net/licenses/standard
         scrollPercent = (scvp / (dh-wh)) * 100,
         position = scrollPercent;
       $('.scroll-progress .progress').css('height', position + '%');
+      // console.log(position)
     }
   }
 

@@ -43,16 +43,6 @@ const app = Vue.createApp({
                 {title: "8年", value: "8"},
                 {title: "9年", value: "9"},
                 {title: "10年", value: "10"},
-                {title: "11年", value: "11"},
-                {title: "12年", value: "12"},
-                {title: "13年", value: "13"},
-                {title: "14年", value: "14"},
-                {title: "15年", value: "15"},
-                {title: "16年", value: "16"},
-                {title: "17年", value: "17"},
-                {title: "18年", value: "18"},
-                {title: "19年", value: "19"},
-                {title: "20年", value: "20"},
             ],
             pay_value: [
                 {title: "100萬", value: "1"},
@@ -72,20 +62,8 @@ const app = Vue.createApp({
         isMobile() {
             return window.innerWidth < 768; // 根據視窗寬度來判斷是否為手機版
         },
-        area_pic(){
-            return this.area
-        },
         age_check_under15(){
             return this.age<=15
-        },
-        age_check_under25(){
-            return this.age<25
-        },
-        age_check_between1624(){
-            return (this.age>=16 & this.age<25)
-        },
-        age_check_over24(){
-            return this.age>24
         },
         prot_hosp(){
             let result = 0;
@@ -267,113 +245,241 @@ const app = Vue.createApp({
 app.mount("#app")
 
 
-function hosp_detail(){
-    let vm = app_1.prot_hosp;
-    let age = app_1.age.toString().padStart(2, '0');
-    let gender = app_1.gender;
-    $("#myhosp").attr("src", "/static/assets/images/prot/hosp/"+vm.pic+".JPG");
-    $("#myhosp2").attr("src", "/static/assets/images/prot/hosp/"+vm.pic[0]+".JPG");
-    $('#myhosp_age').text(age); $('#myhosp_gender').text(gender) ;
-}
+function hosp_detail() {
+        const vm = app_1.prot_hosp;
+        const age = app_1.age;
+        const gender = app_1.gender;
+        const src = "/static/assets/images/prot/hosp/" + vm.pic + ".JPG";
+        const src2 = "/static/assets/images/prot/hosp/" + vm.pic[0] + ".JPG";
 
-function operation_detail(){
-    let vm = app_1.prot_operation
-    let age = app_1.age.toString().padStart(2, '0');
-    // console.log(vm)
-    $("#myoperation1").attr("src", "/static/assets/images/prot/operation/"+vm.gender+"/"+vm.pic1+".JPG");
-    $("#myoperation2").attr("src", "/static/assets/images/prot/operation/"+vm.gender+"/"+vm.pic2+".JPG");
-    $('#mmyoperation_age1').text(age); $('#mmyoperation_age2').text(age) ;
-}
+    $("#myhosp").attr("src", src);
+    $("#myhosp2").attr("src", src2);
+    $('#myhosp_age').text(age.toString().padStart(2, '0'));
+    $('#myhosp_gender').text(gender);
+    };
 
-function pay_detail(){
-    let vm = app_1.prot_pay
-    // console.log(vm)
-    $("#mypay1").attr("src", "/static/assets/images/prot/pay/"+vm.pic+"A.jpg");
-    $("#mypay2").attr("src", "/static/assets/images/prot/pay/"+vm.pic+"B.jpg");
-    $('.mypay_age').text(vm.age.toString().padStart(2, '0'));
-    $('#mypay_vaule1').text(vm.value1); $('#mypay_vaule2').text(vm.value2);
-}
+function operation_detail() {
+    const vm = app_1.prot_operation;
+    const age = app_1.age;
+    const gender = app_1.gender;
+    const src1 = `/static/assets/images/prot/operation/${vm.gender}/${vm.pic1}.JPG`;
+    const src2 = `/static/assets/images/prot/operation/${vm.gender}/${vm.pic2}.JPG`;
 
-function serious_detail(){
-    let vm = app_1.prot_serious
-    // console.log(vm)
-    $("#myserious1").attr("src", "/static/assets/images/prot/serious/"+vm.pic+"A.JPG");
-    $("#myserious2").attr("src", "/static/assets/images/prot/serious/"+vm.pic+"B.JPG");
-    $('.myserious_age').text(vm.age.toString().padStart(2, '0'));
-    $('#myserious_vaule1').text(vm.value1); $('#myserious_vaule2').text(vm.value2);
-}
+    $("#myoperation1").attr("src", src1);
+    $("#myoperation2").attr("src", src2);
+    $('#mmyoperation_age1').text(age.toString().padStart(2, '0'));
+    $('#mmyoperation_age2').text(age.toString().padStart(2, '0'));
+    };
 
-function accident_detail(){
-    let vm = app_1.prot_life;
-    let hosp = app_1.prot_hosp.value;
-    let age = app_1.age.toString().padStart(2, '0');;
-    let gender = app_1.gender;
-    let mypay_year = app_1.mypay_year;
-    let home_exp = app_1.home_exp;
-    let mydebt = app_1.mydebt;
+function pay_detail() {
+    const vm = app_1.prot_pay;
+    const age = vm.age;
+    const src1 = `/static/assets/images/prot/pay/${vm.pic}A.jpg`;
+    const src2 = `/static/assets/images/prot/pay/${vm.pic}B.jpg`;
+    if(vm.value1 =="M10計畫"){$(".pay_lv1").show();$(".pay_lv2").hide();$(".pay_lv3").hide();}
+    if(vm.value1 =="M20計畫"){$(".pay_lv1").show();$(".pay_lv2").show();$(".pay_lv3").hide();}
+    if(vm.value1 =="M30計畫"){$(".pay_lv1").show();$(".pay_lv2").show();$(".pay_lv3").show();}
 
-    if(age <16){ 
-        $("#myaccident1").attr("src", "/static/assets/images/prot/accident/accident2.JPG"); 
-        $('#myaccident_value1').text("61.5萬元") ;
-        $('#myaccident_value2').text("") 
-        $('#myaccident_mypay_year').text('') ;
-        $('#myaccident_home_exp').text('') ;
-        $('#myaccident_mydebt').text('') ;
-    }
-    if(age >=16){ 
-        $("#myaccident1").attr("src", "/static/assets/images/prot/accident/accident1.JPG");
-        $('#myaccident_value1').text(vm.value.toLocaleString()+"萬元");
-        $('#myaccident_value2').text(vm.value.toLocaleString()+"萬元");
-        $('#myaccident_mypay_year').text(mypay_year+"年") ;
-        $('#myaccident_home_exp').text(home_exp+"萬") ;
-        $('#myaccident_mydebt').text(mydebt+"萬") ;
-    }
-    $('#myaccident_hosp').text(hosp.toLocaleString()+"元") 
-    $('#myaccident_pay').text("10萬元") 
-    $('#myaccident_age').text(age) 
-    $('#myaccident_gender').text(gender) 
-    
-    // console.log(vm)
-    
-}
+    $("#mypay1").attr("src", src1);
+    $("#mypay2").attr("src", src2);
+    $('.mypay_age').text(age.toString().padStart(2, '0'));
+    $('#mypay_vaule1').text(vm.value1);
+    $('#mypay_vaule2').text(vm.value2);
+    };
 
-function longcare_detail(){
-    let vm = app_1.prot_longcare
-    let age = app_1.age.toString().padStart(2, '0');;
-    let gender = app_1.gender;
-    // console.log(vm)
-    $("#mylongcare_value1").text((vm.value.toLocaleString())+"萬");
-    $("#mylongcare_value2").text((vm.value.toLocaleString()-1)+"萬");
+function serious_detail() {
+    const vm = app_1.prot_serious;
+    const age = vm.age;
+    const src1 = `/static/assets/images/prot/serious/${vm.pic}A.JPG`;
+    const src2 = `/static/assets/images/prot/serious/${vm.pic}B.JPG`;
+    if(vm.value =="50"){$(".serious_lv1").show();$(".serious_lv2").hide();$(".serious_lv3").hide();}
+    if(vm.value =="250"){$(".serious_lv1").show();$(".serious_lv2").show();$(".serious_lv3").hide();}
+    if(vm.value =="500"){$(".serious_lv1").show();$(".serious_lv2").show();$(".serious_lv3").show();}
+
+    $("#myserious1").attr("src", src1);
+    $("#myserious2").attr("src", src2);
+    $('.myserious_age').text(age.toString().padStart(2, '0'));
+    $('#myserious_vaule1').text(vm.value1);
+    $('#myserious_vaule2').text(vm.value2);
+
+    };
+
+
+function accident_detail() {
+    const vm = app_1.prot_life;
+    const hosp = app_1.prot_hosp.value;
+    const age = app_1.age;
+    const gender = app_1.gender;
+    const mypay_year = app_1.mypay_year;
+    const home_exp = app_1.home_exp;
+    const mydebt = app_1.mydebt;
+
+    const imgSrc = age < 16 ? "/static/assets/images/prot/accident/accident2.JPG" : "/static/assets/images/prot/accident/accident1.JPG";
+    const value1 = age < 16 ? "61.5萬元" : `${vm.value.toLocaleString()}萬元`;
+    const value2 = age < 16 ? "" : `${vm.value.toLocaleString()}萬元`;
+    const mypayYearText = age >= 16 ? `${mypay_year}年` : "";
+    const homeExpText = age >= 16 ? `${home_exp*12}萬` : "";
+    const mydebtText = age >= 16 ? `${mydebt*12}萬` : "";
+
+    $("#myaccident1").attr("src", imgSrc);
+    $('#myaccident_value1').text(value1);
+    $('#myaccident_value2').text(value2);
+    $('#myaccident_mypay_year').text(mypayYearText);
+    $('#myaccident_home_exp').text(homeExpText);
+    $('#myaccident_mydebt').text(mydebtText);
+    $('#myaccident_hosp').text(hosp.toLocaleString()+"元");
+    $('#myaccident_pay').text("10萬元");
+    $('#myaccident_age').text(age.toString().padStart(2, '0'));
+    $('#myaccident_gender').text(gender);
+    };
+
+
+
+function longcare_detail() {
+    const vm = app_1.prot_longcare;
+    const age = app_1.age;
+    const gender = app_1.gender;
+
+    const value1 = `${vm.value.toLocaleString()}萬`;
+    const value2 = `${vm.value.toLocaleString() - 1}萬`;
+
+    $("#mylongcare_value1").text(value1);
+    $("#mylongcare_value2").text(value2);
     $("#mylongcare_way").text(vm.way);
-    $('#mylongcare_age').text(age) ;
-    $('#mylongcare_gender').text(gender) ;
+    $('#mylongcare_age').text(age.toString().padStart(2, '0'));
+    $('#mylongcare_gender').text(gender);
+    };
+
+
+function life_detail() {
+    const vm = app_1.prot_life;
+    const age = app_1.age;
+    const gender = app_1.gender;
+    const mypay_year = app_1.mypay_year;
+    const home_exp = app_1.home_exp;
+    const mydebt = app_1.mydebt;
+
+    const imgSrc = age < 16 ? "/static/assets/images/prot/life/life2.JPG" : "/static/assets/images/prot/life/life1.JPG";
+    const value1 = age < 16 ? "61.5萬元" : `${vm.value.toLocaleString()}萬元`;
+    const value2 = age < 16 ? "" : `${vm.value.toLocaleString()}萬元`;
+    const mypayYearText = age >= 16 ? `${mypay_year}年` : "";
+    const homeExpText = age >= 16 ? `${home_exp*12}萬` : "";
+    const mydebtText = age >= 16 ? `${mydebt*12}萬` : "";
+
+    $("#mylife").attr("src", imgSrc);
+    $('#mylife_value1').text(value1);
+    $('#mylife_value2').text(value2);
+    $('#mylife_mypay_year').text(mypayYearText);
+    $('#mylife_home_exp').text(homeExpText);
+    $('#mylife_mydebt').text(mydebtText);
+    $('#mylife_age').text(age.toString().padStart(2, '0'));
+    $('#mylife_gender').text(gender);
+};
+
+
+    
+$(document).ready(function() {
+    const chapterAnchors = $('[data-anchor]') // 章節錨點元素
+    const $c1div = $('#chapter-position');
+    const $c2div = $('.completeness');
+    let currentChapterIndex = chapterAnchors.length - 1 // 預設為最後一章
+    $(window).scroll(function() {
+        const scrollTop = $(window).scrollTop() // 取得目前捲動的距離
+        const windowWidth = $(window).width()
+        let threshold = 500 // 預設閾值
+        if (windowWidth > 768) {
+            const windowHeight = $(window).height()
+            const chapterHeight = $(chapterAnchors[0]).height() // 假設第一個章節高度代表所有章節高度
+            const ratio = chapterHeight / windowHeight
+            threshold = Math.ceil(1000 * ratio) // 根據比例計算閾值
+        }
+        for (let i = 0; i < chapterAnchors.length; i++) {
+            const chapterTop = $(chapterAnchors[i]).offset().top - threshold // 調整閾值
+            if (scrollTop < chapterTop) {
+            currentChapterIndex = i - 1
+            break
+            }
+        }
+        // console.log(currentChapterIndex)
+        $c1div.text("問卷進度"+currentChapterIndex+"/5")
+
+        if (currentChapterIndex === 0 || currentChapterIndex === 6) {
+            $c1div.hide();
+            // $c2div.hide();
+        } else if (windowWidth < 1200) {
+            $c1div.show();
+            $c2div.hide();
+        } else {
+            $c1div.hide();
+            $c2div.show();
+        }
+        
+    });
+
+    $(window).resize(function() {
+        const windowWidth = $(window).width();
+        if (currentChapterIndex === 0 || currentChapterIndex === 6) {
+            $c1div.hide();
+            // $c2div.hide();
+        } else if (windowWidth < 1200) {
+            $c1div.show();
+            // $c2div.hide();
+        } else {
+            $c1div.hide();
+            // $c2div.show();
+        }
+    });
+
+})
+
+// function close_modal(modal_name) {
+//     var myModal = document.getElementById(modal_name);
+//     var bsModal = new bootstrap.Modal(myModal);
+//     bsModal.hide();
+// }
+
+// function closeModal(modalId) {
+//     var modal = document.getElementById(modalId);
+//     modal.classList.remove('show');
+//     modal.setAttribute('aria-hidden', 'true');
+//     modal.style.display = 'none';
+
+//     // Remove backdrop
+//     var backdrop = document.querySelector('.modal-backdrop');
+//     if (backdrop) {
+//         document.body.removeChild(backdrop);
+//     }
+
+//     // Enable scrolling on body
+//     document.body.classList.remove('modal-open');
+// }
+
+
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    modal.style.display = 'none';
+
+    // var modalBackdrop = document.querySelector('.modal-backdrop');
+    // if (modalBackdrop) {
+    //     modalBackdrop.parentNode.removeChild(modalBackdrop);
+    // }
+
+    // document.body.classList.remove('modal-open');
 }
 
-function life_detail(){
-    let vm = app_1.prot_life;
-    let age = app_1.age.toString().padStart(2, '0');;
-    let gender = app_1.gender;
-    let mypay_year = app_1.mypay_year;
-    let home_exp = app_1.home_exp;
-    let mydebt = app_1.mydebt;
-    if(age <16){ 
-        $("#mylife").attr("src", "/static/assets/images/prot/life/life2.JPG"); 
-        $('#mylife_value1').text("61.5萬元") ;
-        $('#mylife_value2').text("") 
-        $('#mylife_mypay_year').text('') ;
-        $('#mylife_home_exp').text('') ;
-        $('#mylife_mydebt').text('') ;
-    }
-    if(age >=16){ 
-        $("#mylife").attr("src", "/static/assets/images/prot/life/life1.JPG");
-        $('#mylife_value1').text(vm.value.toLocaleString()+"萬元");
-        $('#mylife_value2').text(vm.value.toLocaleString()+"萬元");
-        $('#mylife_mypay_year').text(mypay_year+"年") ;
-        $('#mylife_home_exp').text(home_exp+"萬") ;
-        $('#mylife_mydebt').text(mydebt+"萬") ;
-    }
-    $('#mylife_age').text(age) 
-    $('#mylife_gender').text(gender) 
-    
-    // console.log(vm)
+function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    modal.style.display = 'block';
+
+    // var modalBackdrop = document.createElement('div');
+    // modalBackdrop.classList.add('modal-backdrop', 'fade', 'show');
+    // document.body.appendChild(modalBackdrop);
+
+    // document.body.classList.add('modal-open');
 }
+
+
