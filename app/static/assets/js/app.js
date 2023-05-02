@@ -183,8 +183,8 @@ const app = Vue.createApp({
         },
         prot_serious(){
             let result = 0;
-            if (this.serious == "50" ) { result2 = "基礎療程",result1 = "25萬"}
-            if (this.serious == "250" ) { result2 = "進階療程",result1 = "300萬"}
+            if (this.serious == "50" ) { result2 = "基礎療程",result1 = "50萬"}
+            if (this.serious == "250" ) { result2 = "進階療程",result1 = "250萬"}
             if (this.serious == "500" ) { result2 = "豐富療程",result1 = "500萬"}
             if (this.age >= 0 & this.age <= 9 & this.gender == '男') { pic = 'M0'}
             if (this.age >= 10 & this.age <= 19 & this.gender == '男') { pic = 'M10'}
@@ -210,7 +210,7 @@ const app = Vue.createApp({
 			let s2 = this.longcare2;
             let way = '';
             if (s1 == 1 ) {
-                way = '家庭照護'
+                way = '家人照護'
                 if(s2 == 1) {result = 1}
                 if(s2 == 2) {result = 2}
                 if(s2 == 3) {result = 3}
@@ -223,7 +223,7 @@ const app = Vue.createApp({
             if (s1 == 3 ) {result = 3, way = '外國籍看護'}
             if (s1 == 4 ) {result = 2.5, way = '社區日照中心'}
             if (s1 == 5 ) {result = 5.5, way = '安養機構'}
-            return {value:result+1, way:way}
+            return {value:(result+1).toLocaleString(), way:way}
         },
         prot_life(){
             let debt = parseInt(this.mydebt);
@@ -233,7 +233,7 @@ const app = Vue.createApp({
             let age = this.age
             if (age < 16) { return {value:61.5}}
             if (age >= 16) { 
-                return {value:result } 
+                return {value:result.toLocaleString() } 
             }
         },
 

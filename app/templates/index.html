@@ -559,10 +559,6 @@
               <h3 class="mb-0 h-prot">{{ prot_pay.value1 }}</h3>
             </div>
             <div class="col-12 col-lg-3 mb-8 animated" data-animation="fadeInUp" data-animation-delay="300">
-              <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal" onclick="serious_detail(); openModal('prot_serious_detail')">重疾保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
-              <h3 class="mb-0 h-prot">{{ serious }} 萬元</h3>
-              <br>
-              <br>
               <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal"  onclick="accident_detail(); openModal('prot_accident_detail')">意外保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
               <div v-show="age_check_under15">
                 <h3 class="mb-0 h-prot">喪葬費用保險金 61.5 萬元</h3>
@@ -572,6 +568,11 @@
                 <!-- <h3 class="mb-0 h-prot">意外住院日額 {{ prot_hosp.value }} 元</h3>
                 <h3 class="mb-0 h-prot">傷害醫療限額 10 萬元/次</h3> -->
               </div>
+              <br>
+              <br>
+              <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal" onclick="serious_detail(); openModal('prot_serious_detail')">重疾保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+              <h3 class="mb-0 h-prot">{{ serious }} 萬元</h3>
+              
             </div>
 
             <div class="col-12 col-lg-3 mb-8 mb-lg-0 animated" data-animation="fadeInUp" data-animation-delay="450">
@@ -766,7 +767,7 @@
                   <p id="myaccident_mypay_year" style="position: absolute; top: 75%; left: 79%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
                   <p id="myaccident_home_exp" style="position: absolute; top: 75%; left: 55.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
                   <p id="myaccident_mydebt" style="position: absolute; top: 75%; left: 66.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
-                  <p  id="myaccident_value2" style="position: absolute; top: 75%; left: 87%; transform: translate(0%, -50%); text-align: left; font-size: 2vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
+                  <p  id="myaccident_value2" style="position: absolute; top: 75%; left: 88%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: rgb(80, 106, 151);"></p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -841,7 +842,7 @@
                   <p id="mylife_mypay_year" style="position: absolute; top: 68%; left: 79%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #457F80;"></p>
                   <p id="mylife_home_exp" style="position: absolute; top: 68%; left: 55.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #457F80;"></p>
                   <p id="mylife_mydebt" style="position: absolute; top: 68%; left: 66.3%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #457F80;"></p>
-                  <p  id="mylife_value2" style="position: absolute; top: 68%; left: 87%; transform: translate(0%, -50%); text-align: left; font-size: 2vw; font-weight:bold; color: #457F80;"></p>
+                  <p  id="mylife_value2" style="position: absolute; top: 68%; left: 88%; transform: translate(0%, -50%); text-align: left; font-size: 1.5vw; font-weight:bold; color: #457F80;"></p>
                 </div>
               </div>
               <div class="carousel-item">
