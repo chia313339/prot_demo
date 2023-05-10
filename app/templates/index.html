@@ -597,7 +597,8 @@
                 &nbsp;
                 <button class="btn btn-light animated" onclick="openModal('data_source')" data-animation="fadeInUp" data-animation-delay="650" style="font-size: 1rem; border: 1px solid #2b2b2b; background-color: #ffffff; ">資料來源</button>
                 &nbsp;
-                <a style="color: #2b2b2b;" href="https://www.cathaylife.com.tw/website/PFWeb/servlet/HttpDispatcher/PFCF_0200/PromptA?ACT_NO=2023050901" target="_blank"><button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="700" style="font-size: 1rem; border: 1px solid #2b2b2b; background-color: #ffffff; ">問卷回饋</button></a>
+                <button class="btn btn-light animated" onclick="openModal('qr_code')" data-animation="fadeInUp" data-animation-delay="700" style="font-size: 1rem; border: 1px solid #2b2b2b; background-color: #ffffff; ">滿意度問卷</button>
+                
             </div>
             </div>
 
@@ -939,6 +940,26 @@
       </div>
       </div>
     </div>
+
+    <!-- 滿意度問卷_Modal -->
+    <div class="modal fade" id="qr_code" tabindex="-1" role="dialog" aria-labelledby="prot_qr_code" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content hover-parent">
+        <img src="/static/assets/images/close.png" class="close-icon" onclick="closeModal('qr_code')" />
+        <!-- Modal Body -->
+        <div class="modal-body  text-black text-center">
+          <div id="carousel_qr_code" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" >
+                <img src="/static/assets/images/qr.png" style="height: 40vh;">
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     
 
 
