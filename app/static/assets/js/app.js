@@ -6,7 +6,7 @@ const app = Vue.createApp({
             job: "內勤人員",
             area: "北部",
             age: "30",
-            hosp_room: '單人房',
+            hosp_room: '雙人房',
             hosp_lv: '多數醫院',
             payasyougo: '基礎方案',
             longcare: '1',

@@ -206,22 +206,22 @@
                 <span>&nbsp;&nbsp;如果未來有<span style="color:#2a9696; font-weight: bold;">住院</span>需求，您偏好的房型為何？</span>
               </h3>
               <div class="btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-outline-primary m-3" @click="hosp_room = '單人房'">
-                  <input type="radio" class="btn-check" name="hosp_room" id="hosp_room_S" autocomplete="off" :checked="hosp_room === '單人房'">
-                  <img src="/static/assets/images/questionnaire/bed1.png" style="width: 8rem; padding: 1rem;">
-                  <p>單人房</p>
-                </label>
                 <label class="btn btn-outline-primary m-3" @click="hosp_room = '雙人房'">
                   <input type="radio" class="btn-check" name="hosp_room" id="hosp_room_M" autocomplete="off" :checked="hosp_room ==='雙人房'">
                   <img src="/static/assets/images/questionnaire/bed2.png" style="width: 8rem; padding: 1rem;">
                   <p>雙人房</p>
+                </label>
+                <label class="btn btn-outline-primary m-3" @click="hosp_room = '單人房'">
+                  <input type="radio" class="btn-check" name="hosp_room" id="hosp_room_S" autocomplete="off" :checked="hosp_room === '單人房'">
+                  <img src="/static/assets/images/questionnaire/bed1.png" style="width: 8rem; padding: 1rem;">
+                  <p>單人房</p>
                 </label>
               </div>
             </div>
 
             <div class="col-xl-6 col-lg-12 col-md-12 mb-8 animated" data-animation="fadeInUp" data-animation-delay="300">
               <h3 class="h_title">
-                <span>&nbsp;&nbsp;呈上題，您希望可選擇的醫療院所涵蓋範圍？</span>
+                <span>&nbsp;&nbsp;承上題，您希望可選擇的醫療院所涵蓋範圍？</span>
               </h3>
               <div class="btn-group-toggle d-flex flex-wrap " data-toggle="buttons" style="display: flex;">
                 <div class="m-3" style="justify-content: center; text-align: center;">
@@ -592,6 +592,7 @@
             </div>
 
             <div class="col-12">
+              
               <div class="text-right">
                 <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="600" style="font-size: 1rem;">點擊放大鏡可查看更多資訊唷</button>
                 &nbsp;
@@ -599,6 +600,9 @@
                 &nbsp;
                 <button class="btn btn-light animated" onclick="openModal('qr_code')" data-animation="fadeInUp" data-animation-delay="700" style="font-size: 1rem; border: 1px solid #2b2b2b; background-color: #ffffff; ">滿意度問卷</button>
                 
+            </div>
+            <div class="animated" data-animation="fadeInUp"  data-animation-delay="800" >
+              <p style="color: #6c6c6c;">建議保障謹供參考之用，實際投保內容仍以客戶自行評估之最終決定為主</p>
             </div>
             </div>
 
@@ -627,8 +631,8 @@
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <img src="" class="d-block w-100" id="myhosp">
-                <p style="position: absolute; top: 15.7%; left: 62.8%; text-align: right; font-size: 1.8vw; font-weight:bold;color: rgb(111, 191, 188);" id="myhosp_age"></p>
-                <p style="position: absolute; top: 16%; left: 69.5%; text-align: right; font-size: 1.8vw; font-weight:bold; color: rgb(111, 191, 188);"  id="myhosp_gender"></p>
+                <p style="position: absolute; top: 15.6%; left: 60.2%; text-align: right; font-size: 1.7vw; font-weight:bold;color: rgb(111, 191, 188);" id="myhosp_age"></p>
+                <p style="position: absolute; top: 15.6%; left: 65.8%; text-align: right; font-size: 1.7vw; font-weight:bold; color: rgb(111, 191, 188);"  id="myhosp_gender"></p>
               </div>
               <div class="carousel-item">
                 <img src="" class="d-block w-100" id="myhosp2"  data-bs-interval="30000">
@@ -657,7 +661,7 @@
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="50000" >
                 <img src="" class="d-block w-100" id="myoperation1">
-                <p style="position: absolute; top: 39.2%; left: 49.5%; text-align: right; font-size: 1.5vw; font-weight:bold; color: rgb(93, 190, 189);"  id="mmyoperation_age1"></p>
+                <p style="position: absolute; top: 39.2%; left: 64.5%; text-align: right; font-size: 1.5vw; font-weight:bold; color: rgb(93, 190, 189);"  id="mmyoperation_age1"></p>
               </div>
               <div class="carousel-item">
                 <img src="" class="d-block w-100" data-bs-interval="30000"  id="myoperation2">
@@ -919,7 +923,7 @@
                   </ul>
                 </div>
                 <div>
-                  <ul style="position: absolute; top: 27%; left: 55%; transform: translate(0%, -50%); text-align: left; font-weight:bold; color: #6c6c6c;">
+                  <ul style="position: absolute; top: 28.6%; left: 55%; transform: translate(0%, -50%); text-align: left; font-weight:bold; color: #6c6c6c;">
                     <li>KingNet國家網路醫藥：&nbsp;<a href="https://www.kingnet.com.tw/medicine/generic?recno=1593399160" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
                     <li>好險網(111.05、111.11)：&nbsp;<a href="https://www.phew.tw/article/cont/phewhealth/medical/Medicaltrends/5949/201904025949" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                       &nbsp;<a href="https://www.phew.tw/article/cont/phewhealth/medical/Medicaltrends/8806/202104278806" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
@@ -929,6 +933,7 @@
                       &nbsp;<a href="https://health.udn.com/health/story/5966/3754210" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
                     <li>財團法人癌症希望基金會(112.03)：&nbsp;<a href="https://ovariancancer.ecancer.org.tw/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
                     <li>國泰人壽保險故事書</li>
+                    <li>國泰人壽真康順手術醫療終身保險(外溢型)&nbsp;<a href="https://www.cathaylife.com.tw/cathaylife/products/health-surgery/l66" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
                     </ul>
                 </div>
                 <p style="position: absolute; top: 93.5%; left: 4%; transform: translate(0%, -50%); text-align: left; font-size: 1.3vw; font-weight:bold; color: #6c6c6c;">(02)2755-1399 分機 2274、2267、7155、7117、7139、7166</p>
@@ -950,8 +955,13 @@
         <div class="modal-body  text-black text-center">
           <div id="carousel_qr_code" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
+              <div >
+                <h3 style="display: flex; justify-content: center; align-items: center; font-weight: bold; color: #247e7e;">完成滿意度問卷即可參與活動抽獎</h3>
+                <h4 style="display: flex; justify-content: center; align-items: center; color: #404040;"">獎項包含 全聯禮券500元20名、7-11電子現金50元50名</h4>
+              </div>
               <div class="carousel-item active" >
                 <img src="/static/assets/images/qr.png" style="height: 40vh;">
+                <h3 style="display: flex; justify-content: center; align-items: center; color: #404040;">活動詳情請參閱問卷網頁</h3>
               </div>
             </div>
             </div>
