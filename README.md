@@ -1,3 +1,5 @@
+***此為前後端分離版本***
+
 # prot_demo
 1. 安裝相依套件，pip install -r requirements.txt
 2. 進去路徑後，python main.py即可

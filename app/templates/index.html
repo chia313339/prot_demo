@@ -6,7 +6,7 @@
     <link rel="icon" href="/static/assets/images/favicon.ico" type="image/x-icon">
 
     <!-- Title -->
-    <title>保障藍圖 DEMO版</title>
+    <title>保障藍圖搶先試用版</title>
 
     <!-- Required Meta Tags -->
     <meta charset="utf-8">
@@ -50,13 +50,10 @@
 
     <!-- Site navigation -->
     <nav class="site-navbar site-navbar-transparent navbar navbar-expand-lg navbar-dark fixed-top bg-white shadow-light p-lg-4" data-navbar-base="navbar-dark" data-navbar-toggled="navbar-light" data-navbar-scrolled="navbar-light">
-
       <!-- Brand -->
       <a class="navbar-brand" href="#home" >
         <h2>國泰人壽</h2>
       </a>
-      <!-- <p class="navbar-nav ml-auto" style="color: gray;">僅為內部教育訓練使用，不得作為宣傳或行銷資料，以免觸法</p> -->
-
     </nav>
 
     <!-- Back To Top Button -->
@@ -83,7 +80,7 @@
     <!-- Fullpage content -->
     <div class="ln-fullpage" data-navigation="true" id="app">
       <!-- Section - Home -->
-      <section class="ln-section d-flex min-vh-100" data-anchor="home" data-tooltip="Home" data-ui="light" data-navbar="navbar-dark">
+      <section class="ln-section d-flex min-vh-100" data-anchor="home" data-ui="light" data-navbar="navbar-dark">
         <div class="overlay overlay-advanced">
           <div class="overlay-inner bg-image-holder bg-cover bg-bottom-center">
             <img src="/static/assets/images/index.png" alt="background">
@@ -112,7 +109,7 @@
         </div>
       </section>
       <!-- Section - quest1 -->
-      <section class="ln-section d-xl-flex" data-anchor="quest1" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
+      <section class="ln-section d-xl-flex" data-anchor="quest1" data-ui="dark" data-navbar="navbar-light">
         <div class="container align-self-xl-center">
           <div class="row mb-4">
             <div class="col-8 col-xl-8">
@@ -190,7 +187,7 @@
       </section>
 
       <!-- Section - quest2 -->
-      <section class="ln-section d-xl-flex" data-anchor="quest2" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
+      <section class="ln-section d-xl-flex" data-anchor="quest2" data-ui="dark" data-navbar="navbar-light">
         <div class="container align-self-xl-center">
           <div class="row mb-4">
             <div class="col-8 col-xl-8">
@@ -280,7 +277,7 @@
       </section>
 
       <!-- Section - quest3 -->
-      <section class="ln-section d-xl-flex" data-anchor="quest3" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
+      <section class="ln-section d-xl-flex" data-anchor="quest3" data-ui="dark" data-navbar="navbar-light">
         <div class="container align-self-xl-center">
           <div class="row mb-4">
             <div class="col-8 col-xl-8">
@@ -341,8 +338,8 @@
               </h3>
               <div class="btn-group-toggle d-flex flex-wrap " data-toggle="buttons" style="display: flex;">
                 <div class="mx-3" style="justify-content: center; text-align: center;">
-                  <label class="btn btn-outline-primary" @click="serious = '50'">
-                    <input type="radio" class="btn-check" name="serious" id="serious_1" autocomplete="off" :checked="serious === '50'">
+                  <label class="btn btn-outline-primary" @click="serious = '基礎療程'">
+                    <input type="radio" class="btn-check" name="serious" id="serious_1" autocomplete="off" :checked="serious === '基礎療程'">
                     <img src="/static/assets/images/questionnaire/serious1.png" style="width: 8rem; padding: 1rem;">
                     <p>基礎療程</p>
                   </label>
@@ -352,8 +349,8 @@
                   </p>
                 </div>
                 <div class="mx-3" style="justify-content: center; text-align: center;">
-                  <label class="btn btn-outline-primary" @click="serious = '250'">
-                  <input type="radio" class="btn-check" name="serious" id="serious_2" autocomplete="off" :checked="serious === '250'">
+                  <label class="btn btn-outline-primary" @click="serious = '進階療程'">
+                  <input type="radio" class="btn-check" name="serious" id="serious_2" autocomplete="off" :checked="serious === '進階療程'">
                   <img src="/static/assets/images/questionnaire/serious2.png" style="width: 8rem; padding: 1rem;">
                   <p>進階療程</p>
                 </label>
@@ -363,8 +360,8 @@
                 </p>
                 </div>
                 <div class="mx-3" style="justify-content: center; text-align: center;">
-                  <label class="btn btn-outline-primary" @click="serious = '500'">
-                  <input type="radio" class="btn-check" name="serious" id="serious_3" autocomplete="off" :checked="serious === '500'">
+                  <label class="btn btn-outline-primary" @click="serious = '豐富療程'">
+                  <input type="radio" class="btn-check" name="serious" id="serious_3" autocomplete="off" :checked="serious === '豐富療程'">
                   <img src="/static/assets/images/questionnaire/serious3.png" style="width: 8rem; padding: 1rem;">
                   <p>豐富療程</p>
                 </label>
@@ -389,7 +386,7 @@
       </section>
 
       <!-- Section - quest4 -->
-      <section class="ln-section d-xl-flex" data-anchor="quest4" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
+      <section class="ln-section d-xl-flex" data-anchor="quest4" data-ui="dark" data-navbar="navbar-light">
         <div class="container align-self-xl-center">
           <div class="row mb-4">
             <div class="col-8 col-xl-8">
@@ -471,7 +468,7 @@
       </section>
 
       <!-- Section - quest5 -->
-      <section class="ln-section d-xl-flex" data-anchor="quest5" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
+      <section class="ln-section d-xl-flex" data-anchor="quest5"  data-ui="dark" data-navbar="navbar-light">
         <div class="container align-self-xl-center">
           <div class="row mb-4">
             <div class="col-12 col-xl-12">
@@ -517,18 +514,16 @@
             </div>
 
             <div class="col-12 col-lg-6 animated" data-animation="fadeInUp" data-animation-delay="600"></div>
-            <div class="col-12 col-lg-6 animated text-right" data-animation="fadeInUp" data-animation-delay="750">
+            <div class="col-12 col-lg-6 animated text-right" >
               <br>
               <br>
               <br>
-              <!-- {{home_exp}}，{{mydebt}}，{{mypay_year}}，{{mypay_value}} -->
-              <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="750" onclick="location.href='#myprotection'" style="font-size: 1rem;">往下觀看結果</button>
+              <button class="btn btn-success animated" data-animation="fadeInUp"  data-animation-delay="650" @click="showoutput" style="font-size: 2rem;">計算結果</button>
             </div>
 
           </div>
         </div>
       </section>
-
 
       <!-- Section - Our solutions -->
       <section class="ln-section d-xl-flex " data-anchor="myprotection" data-tooltip="Our solutions" data-ui="dark" data-navbar="navbar-light">
@@ -544,71 +539,72 @@
               <h2 class="mb-4 animated" data-animation="fadeInUp">您的推薦保障額度：</h2>
             </div>
           </div>
-          <div class="row align-items-center">
+          <div v-show="isoutput" id="myresult">
+            <div class="row align-items-center">
 
-            <div class="col-12 col-lg-3 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
-              <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal"  onclick="hosp_detail(); openModal('prot_hosp_detail')" >住院保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
-              <h3 class="mb-0 h-prot">日額 {{ prot_hosp.value }} 元</h3>
-              <br>
-              <br>
-              <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal" onclick="operation_detail(); openModal('prot_operation_detail')">手術保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
-              <h3 class="mb-0 h-prot">保額 {{ prot_operation.value }} 元</h3>
-              <br>
-              <br>
-              <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal"  onclick="pay_detail(); openModal('prot_pay_detail')">實支實付<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
-              <h3 class="mb-0 h-prot">{{ prot_pay.value1 }}</h3>
-            </div>
-            <div class="col-12 col-lg-3 mb-8 animated" data-animation="fadeInUp" data-animation-delay="300">
-              <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal"  onclick="accident_detail(); openModal('prot_accident_detail')">意外保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
-              <div v-show="age_check_under15">
-                <h3 class="mb-0 h-prot">喪葬費用保險金 61.5 萬元</h3>
+              <div class="col-12 col-lg-3 mb-8 animated" data-animation="fadeInUp" data-animation-delay="150">
+                <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal"  onclick="hosp_detail(); openModal('prot_hosp_detail')" >住院保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+                <h3 class="mb-0 h-prot">日額 {{ apidata.hosp_data.hosp_value }} 元</h3>
+                <br>
+                <br>
+                <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal" onclick="operation_detail(); openModal('prot_operation_detail')">手術保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+                <h3 class="mb-0 h-prot">保額 {{ apidata.operation_data.operation_value }} 元</h3>
+                <br>
+                <br>
+                <button type="button" class="btn btn-p1 btn-lg btn-prot" data-toggle="modal"  onclick="pay_detail(); openModal('prot_pay_detail')">實支實付<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+                <h3 class="mb-0 h-prot">{{ apidata.pay_data.pay_value }}</h3>
               </div>
-              <div v-show="!age_check_under15">
-                <h3 class="mb-0 h-prot">意外身故 {{ prot_life.value }} 萬元</h3>
-                <!-- <h3 class="mb-0 h-prot">意外住院日額 {{ prot_hosp.value }} 元</h3>
-                <h3 class="mb-0 h-prot">傷害醫療限額 10 萬元/次</h3> -->
-              </div>
-              <br>
-              <br>
-              <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal" onclick="serious_detail(); openModal('prot_serious_detail')">重疾保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
-              <h3 class="mb-0 h-prot">{{ serious }} 萬元</h3>
-              
-            </div>
-
-            <div class="col-12 col-lg-3 mb-8 mb-lg-0 animated" data-animation="fadeInUp" data-animation-delay="450">
-              <button type="button" class="btn btn-p3 btn-lg btn-prot" data-toggle="modal"  onclick="longcare_detail(); openModal('prot_longcare_detail')">長照保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
-              <h3 class="mb-0 h-prot">{{ prot_longcare.value }} 萬元</h3>
-            </div>
-
-            <div class="col-12 col-lg-3 mb-8 mb-lg-0 animated" data-animation="fadeInUp" data-animation-delay="600">
-              <button type="button" class="btn btn-p3 btn-lg btn-prot" data-toggle="modal"  onclick="life_detail(); openModal('prot_life_detail')">壽險保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
-              <div v-show="age_check_under15">
-                <h3 class="mb-0 h-prot">喪葬費用保險金 61.5 萬元</h3>
-              </div>
-              <div v-show="!age_check_under15">
-                <h3 class="mb-0 h-prot">{{ prot_life.value }} 萬元</h3>
-              </div>
-
-            </div>
-
-            <div class="col-12">
-              
-              <div class="text-right">
-                <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="600" style="font-size: 1rem;">點擊放大鏡可查看更多資訊唷</button>
-                &nbsp;
-                <button class="btn btn-light animated" onclick="openModal('data_source')" data-animation="fadeInUp" data-animation-delay="650" style="font-size: 1rem; border: 1px solid #2b2b2b; background-color: #ffffff; ">資料來源</button>
-                &nbsp;
-                <button class="btn btn-light animated" onclick="openModal('qr_code')" data-animation="fadeInUp" data-animation-delay="700" style="font-size: 1rem; border: 1px solid #2b2b2b; background-color: #ffffff; ">滿意度問卷</button>
+              <div class="col-12 col-lg-3 mb-8 animated" data-animation="fadeInUp" data-animation-delay="300">
+                <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal"  onclick="accident_detail(); openModal('prot_accident_detail')">意外保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+                <div v-show="age_check_under15">
+                  <h3 class="mb-0 h-prot">喪葬費用保險金 61.5 萬元</h3>
+                </div>
+                <div v-show="!age_check_under15">
+                  <h3 class="mb-0 h-prot">意外身故 {{ apidata.life_data.life_value }} 萬元</h3>
+                </div>
+                <br>
+                <br>
+                <button type="button" class="btn btn-p2 btn-lg btn-prot" data-toggle="modal" onclick="serious_detail(); openModal('prot_serious_detail')">重疾保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+                <h3 class="mb-0 h-prot">{{ apidata.serious_data.serious_value }} 萬元</h3>
                 
+              </div>
+  
+              <div class="col-12 col-lg-3 mb-8 mb-lg-0 animated" data-animation="fadeInUp" data-animation-delay="450">
+                <button type="button" class="btn btn-p3 btn-lg btn-prot" data-toggle="modal"  onclick="longcare_detail(); openModal('prot_longcare_detail')">長照保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+                <h3 class="mb-0 h-prot">{{ apidata.longcare_data.longcare_value }} 萬元</h3>
+              </div>
+  
+              <div class="col-12 col-lg-3 mb-8 mb-lg-0 animated" data-animation="fadeInUp" data-animation-delay="600">
+                <button type="button" class="btn btn-p3 btn-lg btn-prot" data-toggle="modal"  onclick="life_detail(); openModal('prot_life_detail')">壽險保障<img src="/static/assets/images/prot/search.png" class="position-absolute top-1 right-50" style="z-index: 1;width: 50px;"></button>
+                <div v-show="age_check_under15">
+                  <h3 class="mb-0 h-prot">喪葬費用保險金 61.5 萬元</h3>
+                </div>
+                <div v-show="!age_check_under15">
+                  <h3 class="mb-0 h-prot">{{ apidata.life_data.life_value }} 萬元</h3>
+                </div>
+  
+              </div>
+  
+              <div class="col-12">
+                
+                <div class="text-right">
+                  <button class="btn btn-light animated" data-animation="fadeInUp" data-animation-delay="600" style="font-size: 1rem;">點擊放大鏡可查看更多資訊唷</button>
+                  &nbsp;
+                  <button class="btn btn-light animated" onclick="openModal('data_source')" data-animation="fadeInUp" data-animation-delay="650" style="font-size: 1rem; border: 1px solid #2b2b2b; background-color: #ffffff; ">資料來源</button>
+                  &nbsp;
+                  <button class="btn btn-light animated" onclick="openModal('qr_code')" data-animation="fadeInUp" data-animation-delay="700" style="font-size: 1rem; border: 1px solid #2b2b2b; background-color: #ffffff; ">滿意度問卷</button>
+                  
+              </div>
+              <div class="animated" data-animation="fadeInUp"  data-animation-delay="800" >
+                <p style="color: #6c6c6c;">建議保障謹供參考之用，實際投保內容仍以客戶自行評估之最終決定為主；修改內容後請重新點擊「計算結果」</p>
+              </div>
+              </div>
+  
+              
+  
             </div>
-            <div class="animated" data-animation="fadeInUp"  data-animation-delay="800" >
-              <p style="color: #6c6c6c;">建議保障謹供參考之用，實際投保內容仍以客戶自行評估之最終決定為主</p>
-            </div>
-            </div>
-
-            
-
           </div>
+          
         </div>
       </section>
       
@@ -960,7 +956,7 @@
                 <h4 style="display: flex; justify-content: center; align-items: center; color: #404040;"">獎項包含 全聯禮券500元20名、7-11電子現金50元50名</h4>
               </div>
               <div class="carousel-item active" >
-                <img src="/static/assets/images/qr.png" style="height: 40vh;">
+                <a href="https://www.cathaylife.com.tw/website/PFWeb/servlet/HttpDispatcher/PFCF_0200/PromptA?ACT_NO=2023050901" target="_blank"><img src="/static/assets/images/qr.png" style="height: 40vh;"></a>
                 <h3 style="display: flex; justify-content: center; align-items: center; color: #404040;">活動詳情請參閱問卷網頁</h3>
               </div>
             </div>
@@ -979,7 +975,7 @@
       <ul class="mx-auto">
         <li><a href="#home"><i class="fa-solid fa-house"></i></a></li>
         <li><a href="#quest1"><i class="fa-solid fa-pen-to-square"></i></a></li>
-        <li><a href="#myprotection"><i class="fa-solid fa-shield-heart"></i></a></li>
+        <li><a href="#quest5"><i class="fa-solid fa-shield-heart"></i></a></li>
       </ul>
     </nav>
 

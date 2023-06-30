@@ -6,4 +6,5 @@ def create_app():
     app.jinja_env.variable_start_string = '[['
     app.jinja_env.variable_end_string = ']]'
     app.add_url_rule('/', 'index', index, methods=['GET', 'POST'])
+    app.add_url_rule('/prot_api', 'prot_api', prot_api, methods=['POST'])
     return app
