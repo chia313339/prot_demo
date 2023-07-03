@@ -183,8 +183,8 @@ function pay_detail() {
     $("#mypay1").attr("src", src1);
     $("#mypay2").attr("src", src2);
     $('.mypay_age').text(age.toString().padStart(2, '0'));
-    $('#mypay_vaule1').text(payasyougo);
-    $('#mypay_vaule2').text(vm.pay_value);
+    $('#mypay_vaule2').text(payasyougo);
+    $('#mypay_vaule1').text(vm.pay_value);
     };
 
 function serious_detail() {
@@ -200,8 +200,8 @@ function serious_detail() {
     $("#myserious1").attr("src", src1);
     $("#myserious2").attr("src", src2);
     $('.myserious_age').text(age.toString().padStart(2, '0'));
-    $('#myserious_vaule1').text(serious);
-    $('#myserious_vaule2').text(vm.serious_value);
+    $('#myserious_vaule2').text(serious);
+    $('#myserious_vaule1').text(vm.serious_value+"萬元");
 
     };
 
